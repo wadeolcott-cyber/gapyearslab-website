@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Make the most of the years between | GapYears Lab</title>
-<meta name="description" content="Explore income, taxes, healthcare costs, and retirement savings with GapYears Lab, a free-to-use early-retirement planning platform.">
+<meta name="description" content="Explore annual income decisions, taxes, ACA healthcare costs, and Roth conversion tradeoffs with GapYears Lab and the GapYears Income Planner preview.">
 <link rel="canonical" href="https://gapyearslab.com/">
 <meta name="theme-color" content="#19364B">
 <meta property="og:title" content="Make the most of the years between | GapYears Lab">
-<meta property="og:description" content="Explore income, taxes, healthcare costs, and retirement savings with GapYears Lab, a free-to-use early-retirement planning platform.">
+<meta property="og:description" content="Explore annual income decisions, taxes, ACA healthcare costs, and Roth conversion tradeoffs with GapYears Lab and the GapYears Income Planner preview.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gapyearslab.com/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -26,7 +27,7 @@
 <a href="/planning-tools/">Planning Tools</a>
 <a href="/learn/">Learn</a>
 <a href="/about/">About</a>
-<a class="button small" href="/planner/">Open Planner <span aria-hidden="true">
+<a class="button small" href="/planner/">Preview Planner <span aria-hidden="true">
 <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
 <path d="M5 19 19 5M5 5h14v14"/>
 </svg>
@@ -35,7 +36,7 @@
 </nav>
 </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <section class="hero container">
 <div class="hero-copy">
 <p class="eyebrow">
@@ -45,7 +46,7 @@
 </h1>
 <p class="lead">Leaving full-time work changes how you manage your money. Explore how income, taxes, healthcare costs, and retirement savings work together.</p>
 <div class="actions">
-<a class="button" href="/planner/">Explore the Income Planner <span aria-hidden="true">
+<a class="button" href="/planner/">Preview the Income Planner <span aria-hidden="true">
 <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
 <path d="M5 19 19 5M5 5h14v14"/>
 </svg>
@@ -78,98 +79,78 @@
 <p class="eyebrow">MEET YOUR NEXT PLANNING COMPANION</p>
 <h2>The gap years, brought together.</h2>
 </div>
-<p>One place to explore the moving parts<br>of life after full-time work.</p>
+<p>Explore one year of income decisions,<br>tax consequences, and healthcare costs.</p>
 </div>
-<div class="planner-window">
+<section class="planner-window" aria-label="Illustrative annual planning preview">
 <div class="window-top">
-<span>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-</span>
 <span>GapYears Income Planner</span>
-<span class="demo">ILLUSTRATIVE PREVIEW</span>
+<span class="demo">STATIC EXAMPLE · NOT APP OUTPUT</span>
 </div>
 <div class="planner-body">
 <div class="preview-title">
 <div>
-<p class="eyebrow">YOUR YEARS, IN VIEW</p>
-<h3>A little clarity. A lot of possibility.</h3>
+<p class="eyebrow">ONE YEAR. CONNECTED DECISIONS.</p>
+<h3>An annual scenario, in context.</h3>
 </div>
-<span class="pill">Example scenario</span>
+<span class="pill">Illustrative values only</span>
 </div>
-<div class="metrics">
+<p>Explore income choices alongside taxes and healthcare costs. These made-up values explain the concepts; they are not results from the application.</p>
+<div class="annual-grid">
+<div class="scenario-inputs">
+<h4>Example annual inputs</h4>
+<dl class="annual-values">
 <div>
-<span>Leaving full-time work</span>
-<strong>Age 55</strong>
+<dt>Part-time earnings</dt>
+<dd>$24,000</dd>
 </div>
 <div>
-<span>Annual spending</span>
-<strong>$60,000</strong>
+<dt>Taxable traditional IRA withdrawal</dt>
+<dd>$18,000</dd>
 </div>
 <div>
-<span>Planning horizon</span>
-<strong>Age 90</strong>
+<dt>Interest income</dt>
+<dd>$2,000</dd>
+</div>
+<div class="subtotal">
+<dt>Income before conversion</dt>
+<dd>$44,000</dd>
+</div>
+<div>
+<dt>Taxable Roth conversion</dt>
+<dd>$10,000</dd>
+</div>
+</dl>
+<p class="fine-print">A conversion moves money between accounts; it is not additional spending cash.</p>
+</div>
+<div class="scenario-context">
+<h4>What connects the decisions?</h4>
+<dl class="annual-values">
+<div>
+<dt>Illustrative modified adjusted gross income (MAGI)</dt>
+<dd>$54,000</dd>
+</div>
+</dl>
+<p class="fine-print">Simplified example: $44,000 of income plus a $10,000 taxable conversion, assuming no adjustments or other MAGI additions. Actual tax and ACA definitions and household circumstances matter.</p>
+<ul class="connections">
+<li>
+<strong>Income taxes</strong>
+<span>Income sources and taxable conversions affect estimated federal and applicable state income taxes.</span>
+</li>
+<li>
+<strong>ACA healthcare costs</strong>
+<span>Household MAGI can affect premium tax credit eligibility and net premiums, alongside other eligibility rules.</span>
+</li>
+<li>
+<strong>Annual tradeoffs</strong>
+<span>Compare estimated taxes, net healthcare costs, and overall annual financial outcomes across scenarios.</span>
+</li>
+</ul>
 </div>
 </div>
-<div class="chart-heading">
-<strong>An illustrative income mix</strong>
-<span>Annual dollars · example only</span>
+<p class="preview-disclosure">
+<strong>No calculated results shown.</strong> This website does not calculate tax, premiums, credits, savings, or recommendations. The example does not identify an optimal conversion amount.</p>
 </div>
-<div class="chart" role="img" aria-label="Illustrative annual income of 60,000 dollars: at age 55, 60,000 from savings; at age 60, 60,000 from savings; at age 65, 36,000 from savings and 24,000 from Social Security; at age 70, 24,000 from savings and 36,000 from Social Security.">
-<div class="axis">
-<span>$60k</span>
-<span>$30k</span>
-<span>$0</span>
-</div>
-<div class="bar-group">
-<div class="bar">
-<span style="height:100%">
-</span>
-</div>
-<span>55</span>
-</div>
-<div class="bar-group">
-<div class="bar">
-<span style="height:100%">
-</span>
-</div>
-<span>60</span>
-</div>
-<div class="bar-group">
-<div class="bar">
-<span style="height:60%">
-</span>
-<b style="height:40%">
-</b>
-</div>
-<span>65</span>
-</div>
-<div class="bar-group">
-<div class="bar">
-<span style="height:40%">
-</span>
-<b style="height:60%">
-</b>
-</div>
-<span>70</span>
-</div>
-</div>
-<div class="legend">
-<span>
-<i>
-</i>Savings withdrawals</span>
-<span>
-<i>
-</i>Social Security</span>
-<span>Age →</span>
-</div>
-<p class="fine-print">Made-up figures for a visual example, not a calculation or recommendation. Taxes, healthcare, inflation, and investment returns are not modeled in this preview.</p>
-</div>
-</div>
+</section>
 </section>
 <section class="section container" id="how-it-works">
 <p class="eyebrow">A LITTLE EXPLORATION GOES A LONG WAY</p>
@@ -178,17 +159,17 @@
 <article class="card">
 <span class="number">01 /</span>
 <h3>Explore</h3>
-<p>Start with the life you want to lead. Think through your spending, income sources, and the years you want to plan for.</p>
+<p>Bring together income from different sources and explore a Roth conversion within a single planning year.</p>
 </article>
 <article class="card">
 <span class="number">02 /</span>
 <h3>Compare</h3>
-<p>Consider different paths. What might change if you work part-time, leave work later, or adjust your spending?</p>
+<p>Compare annual scenarios to see how income choices can affect estimated taxes, ACA premiums, and premium tax credits.</p>
 </article>
 <article class="card">
 <span class="number">03 /</span>
 <h3>Understand</h3>
-<p>See how the pieces connect, so you can ask better questions and make more informed decisions.</p>
+<p>Consider overall estimated annual financial outcomes and tradeoffs, rather than looking at taxes or healthcare costs in isolation.</p>
 </article>
 </div>
 </section>
@@ -218,8 +199,8 @@
 </svg>
 </span>
 <div>
-<h3>Timing matters.</h3>
-<p>Account access, Social Security decisions, and Medicare eligibility don't all arrive together.</p>
+<h3>Conversions have tradeoffs.</h3>
+<p>A taxable Roth conversion can change annual income, with consequences for income taxes and ACA premium tax credits.</p>
 </div>
 </article>
 <article>
@@ -249,21 +230,22 @@
 </div>
 <article class="feature-card">
 <div>
-<span class="pill">FIRST UP · IN DEVELOPMENT</span>
+<span class="pill">FIRST APPLICATION · WEBSITE PREVIEW</span>
 <h3>GapYears Income Planner</h3>
-<p>Explore a preview of our free-to-use income-planning tool, designed around the transition out of full-time work.</p>
+<p>The GapYears Income Planner brings annual income sources, estimated federal and applicable state income taxes, ACA costs, and Roth conversion opportunities into a scenario comparison. This website offers a static preview; the existing app is not yet integrated here.</p>
 <a class="button" href="/planner/">Explore the preview <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
 <path d="M5 19 19 5M5 5h14v14"/>
 </svg>
 </a>
 </div>
 <div class="feature-symbol" aria-hidden="true">
-<span>55</span>
+<span>Income</span>
 <div>
 </div>
-<span>65+</span>
+<span>Costs</span>
 </div>
 </article>
+<p class="scope-note">The Income Planner focuses on annual decisions. It does not currently provide comprehensive multi-year retirement projections, portfolio longevity calculations, or Social Security optimization.</p>
 </section>
 <section class="section container resources">
 <div class="section-heading">
@@ -307,7 +289,7 @@
 <p class="eyebrow">YOUR NEXT CHAPTER</p>
 <h2>Make room for the possibilities.</h2>
 <p>Start by seeing how the pieces might fit together.</p>
-<a class="button" href="/planner/">Explore the Income Planner <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+<a class="button" href="/planner/">Preview the Income Planner <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
 <path d="M5 19 19 5M5 5h14v14"/>
 </svg>
 </a>

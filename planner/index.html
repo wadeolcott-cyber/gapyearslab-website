@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Income Planner Preview | GapYears Lab</title>
-<meta name="description" content="See an illustrative preview of the GapYears Income Planner. The interactive application is not yet available.">
+<meta name="description" content="A static annual planning preview showing illustrative income, Roth conversions, and MAGI. No calculated tax, healthcare, or optimizer results.">
 <link rel="canonical" href="https://gapyearslab.com/planner/">
 <meta name="theme-color" content="#19364B">
 <meta property="og:title" content="Income Planner Preview | GapYears Lab">
-<meta property="og:description" content="See an illustrative preview of the GapYears Income Planner. The interactive application is not yet available.">
+<meta property="og:description" content="A static annual planning preview showing illustrative income, Roth conversions, and MAGI. No calculated tax, healthcare, or optimizer results.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gapyearslab.com/planner/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -26,7 +27,7 @@
 <a href="/planning-tools/">Planning Tools</a>
 <a href="/learn/">Learn</a>
 <a href="/about/">About</a>
-<a class="button small" href="/planner/">Open Planner <span aria-hidden="true">
+<a class="button small" href="/planner/">Preview Planner <span aria-hidden="true">
 <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
 <path d="M5 19 19 5M5 5h14v14"/>
 </svg>
@@ -35,113 +36,105 @@
 </nav>
 </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 <section class="page-heading container">
 <p class="eyebrow">GAPYEARS INCOME PLANNER</p>
-<h1>A preview of the bigger picture.</h1>
-<p class="lead">The interactive planner is in development. This is a static illustration of its intended experience, with made-up figures and no financial calculations.</p>
+<h1>One year. A more connected view.</h1>
+<p class="lead">Preview the concepts behind our existing annual income-planning application. This website is a static illustration, not the interactive app.</p>
 </section>
-<section class="container content">
-<div class="planner-window">
+<div class="container content">
+<section class="planner-window" aria-label="Illustrative annual planning preview">
 <div class="window-top">
-<span>
-<i>
-</i>
-<i>
-</i>
-<i>
-</i>
-</span>
 <span>GapYears Income Planner</span>
-<span class="demo">ILLUSTRATIVE PREVIEW</span>
+<span class="demo">STATIC EXAMPLE · NOT APP OUTPUT</span>
 </div>
 <div class="planner-body">
 <div class="preview-title">
 <div>
-<p class="eyebrow">YOUR YEARS, IN VIEW</p>
-<h3>A little clarity. A lot of possibility.</h3>
+<p class="eyebrow">ONE YEAR. CONNECTED DECISIONS.</p>
+<h2>An annual scenario, in context.</h2>
 </div>
-<span class="pill">Example scenario</span>
+<span class="pill">Illustrative values only</span>
 </div>
-<div class="metrics">
+<p>Explore income choices alongside taxes and healthcare costs. These made-up values explain the concepts; they are not results from the application.</p>
+<div class="annual-grid">
+<div class="scenario-inputs">
+<h3>Example annual inputs</h3>
+<dl class="annual-values">
 <div>
-<span>Leaving full-time work</span>
-<strong>Age 55</strong>
+<dt>Part-time earnings</dt>
+<dd>$24,000</dd>
 </div>
 <div>
-<span>Annual spending</span>
-<strong>$60,000</strong>
+<dt>Taxable traditional IRA withdrawal</dt>
+<dd>$18,000</dd>
 </div>
 <div>
-<span>Planning horizon</span>
-<strong>Age 90</strong>
+<dt>Interest income</dt>
+<dd>$2,000</dd>
+</div>
+<div class="subtotal">
+<dt>Income before conversion</dt>
+<dd>$44,000</dd>
+</div>
+<div>
+<dt>Taxable Roth conversion</dt>
+<dd>$10,000</dd>
+</div>
+</dl>
+<p class="fine-print">A conversion moves money between accounts; it is not additional spending cash.</p>
+</div>
+<div class="scenario-context">
+<h3>What connects the decisions?</h3>
+<dl class="annual-values">
+<div>
+<dt>Illustrative modified adjusted gross income (MAGI)</dt>
+<dd>$54,000</dd>
+</div>
+</dl>
+<p class="fine-print">Simplified example: $44,000 of income plus a $10,000 taxable conversion, assuming no adjustments or other MAGI additions. Actual tax and ACA definitions and household circumstances matter.</p>
+<ul class="connections">
+<li>
+<strong>Income taxes</strong>
+<span>Income sources and taxable conversions affect estimated federal and applicable state income taxes.</span>
+</li>
+<li>
+<strong>ACA healthcare costs</strong>
+<span>Household MAGI can affect premium tax credit eligibility and net premiums, alongside other eligibility rules.</span>
+</li>
+<li>
+<strong>Annual tradeoffs</strong>
+<span>Compare estimated taxes, net healthcare costs, and overall annual financial outcomes across scenarios.</span>
+</li>
+</ul>
 </div>
 </div>
-<div class="chart-heading">
-<strong>An illustrative income mix</strong>
-<span>Annual dollars · example only</span>
-</div>
-<div class="chart" role="img" aria-label="Illustrative annual income of 60,000 dollars: at age 55, 60,000 from savings; at age 60, 60,000 from savings; at age 65, 36,000 from savings and 24,000 from Social Security; at age 70, 24,000 from savings and 36,000 from Social Security.">
-<div class="axis">
-<span>$60k</span>
-<span>$30k</span>
-<span>$0</span>
-</div>
-<div class="bar-group">
-<div class="bar">
-<span style="height:100%">
-</span>
-</div>
-<span>55</span>
-</div>
-<div class="bar-group">
-<div class="bar">
-<span style="height:100%">
-</span>
-</div>
-<span>60</span>
-</div>
-<div class="bar-group">
-<div class="bar">
-<span style="height:60%">
-</span>
-<b style="height:40%">
-</b>
-</div>
-<span>65</span>
-</div>
-<div class="bar-group">
-<div class="bar">
-<span style="height:40%">
-</span>
-<b style="height:60%">
-</b>
-</div>
-<span>70</span>
-</div>
-</div>
-<div class="legend">
-<span>
-<i>
-</i>Savings withdrawals</span>
-<span>
-<i>
-</i>Social Security</span>
-<span>Age →</span>
-</div>
-<p class="fine-print">Made-up figures for a visual example, not a calculation or recommendation. Taxes, healthcare, inflation, and investment returns are not modeled in this preview.</p>
-</div>
-</div>
-<div class="prose">
-<h2>What comes next</h2>
-<p>The planner is maintained in a separate repository. Its intended future home is app.gapyearslab.com; there is no live application linked here yet.</p>
-<p>No inputs are collected and no personalized results are generated by this preview. Final features and calculation methodology will be documented as the application becomes available.</p>
-<a class="text-link" href="/methodology/">Read about methodology <svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-<path d="M5 19 19 5M5 5h14v14"/>
-</svg>
-</a>
+<p class="preview-disclosure">
+<strong>No calculated results shown.</strong> This website does not calculate tax, premiums, credits, savings, or recommendations. The example does not identify an optimal conversion amount.</p>
 </div>
 </section>
+<section class="prose">
+<h2>What the application helps you explore</h2>
+<ul class="capabilities">
+<li>
+<strong>Income from different sources.</strong> Bring annual income choices into one scenario.</li>
+<li>
+<strong>Estimated income taxes.</strong> Consider federal and applicable state income taxes.</li>
+<li>
+<strong>ACA healthcare costs.</strong> Explore health insurance premiums and premium tax credits alongside income.</li>
+<li>
+<strong>Roth conversion opportunities.</strong> Explore how taxable conversions interact with taxes and healthcare costs.</li>
+<li>
+<strong>Scenario comparison.</strong> Compare overall estimated annual financial outcomes and tradeoffs.</li>
+</ul>
+<h2>A focused starting point</h2>
+<p>The Income Planner currently focuses on annual income planning. It does not provide comprehensive multi-year retirement projections, portfolio longevity calculations, or Social Security optimization.</p>
+<h2>Application integration is still ahead</h2>
+<p>The existing Income Planner is maintained separately. Its intended future home is app.gapyearslab.com; this website does not link to an application there yet.</p>
+<p>No financial inputs are collected and no personalized estimates are generated here. Actual estimates depend on the application’s assumptions, supported rules, and your circumstances.</p>
+<a class="text-link" href="/methodology/">Read about methodology</a>
+</section>
+</div>
 </main>
 <footer>
 <div class="container">
