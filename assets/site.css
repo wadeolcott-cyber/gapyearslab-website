@@ -824,3 +824,7 @@ nav {
   background:var(--teal);
   transform:rotate(45deg)
 }
+/* Darker companion tones preserve contrast for small text and button labels. */
+.button { background: #247d72; }
+.eyebrow, .number, .step span { color: #226f65; }
+.step-three span { color: #a6d8c8; }
