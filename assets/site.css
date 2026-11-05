@@ -303,7 +303,7 @@ em {
   font-size:9px;
   margin-bottom:8px
 }
-.preview-title h3 {
+.preview-title :is(h2, h3) {
   font-size:21px
 }
 .pill {
@@ -314,101 +314,6 @@ em {
   padding:6px 11px;
   border-radius:4px;
   letter-spacing:.6px
-}
-.metrics {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  padding:25px 0;
-  margin:10px 0 25px;
-  border-block:1px solid var(--line)
-}
-.metrics>div {
-  padding-left:25px;
-  border-left:1px solid var(--line)
-}
-.metrics>div:first-child {
-  padding-left:0;
-  border:0
-}
-.metrics span {
-  display:block;
-  font-size:11px;
-  color:var(--muted)
-}
-.metrics strong {
-  display:block;
-  font-size:26px;
-  font-weight:550
-}
-.chart-heading {
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  font-size:12px
-}
-.chart-heading span {
-  color:var(--muted);
-  font-size:10px
-}
-.chart {
-  display:flex;
-  gap:10%;
-  height:190px;
-  margin-top:20px;
-  padding-right:7%;
-  border-bottom:1px solid var(--line);
-  background:repeating-linear-gradient(to top,transparent 0,transparent 71px,#eef1f3 72px)
-}
-.axis {
-  font-size:10px;
-  color:var(--muted);
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  padding-bottom:25px;
-  min-width:30px
-}
-.bar-group {
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  justify-content:end;
-  text-align:center;
-  font-size:10px;
-  gap:6px
-}
-.bar {
-  height:155px;
-  display:flex;
-  flex-direction:column-reverse;
-  overflow:hidden;
-  border-radius:4px 4px 0 0
-}
-.bar span {
-  background:#73b3a1
-}
-.bar b {
-  background:var(--navy)
-}
-.legend {
-  display:flex;
-  gap:22px;
-  font-size:10px;
-  margin:20px 0;
-  color:var(--muted)
-}
-.legend>span:last-child {
-  margin-left:auto
-}
-.legend i {
-  display:inline-block;
-  width:8px;
-  height:8px;
-  background:#73b3a1;
-  margin-right:6px
-}
-.legend>span:nth-child(2) i {
-  background:var(--navy)
 }
 .fine-print {
   font-size:11px;
@@ -712,40 +617,8 @@ nav {
   flex-wrap:wrap;
   gap:7px
 }
-.window-top>span:first-child {
-  display:none
-}
 .demo {
   font-size:8px
-}
-.metrics {
-  gap:10px;
-  padding-block:15px
-}
-.metrics>div {
-  padding-left:10px
-}
-.metrics span {
-  font-size:10px
-}
-.metrics strong {
-  font-size:21px
-}
-.chart-heading {
-  flex-direction:column;
-  gap:3px
-}
-.chart {
-  gap:8%;
-  padding-right:0;
-  height:170px
-}
-.bar {
-  height:135px
-}
-.legend {
-  gap:12px;
-  flex-wrap:wrap
 }
 .cards,.split,.feature-card {
   grid-template-columns:1fr
@@ -828,3 +701,26 @@ nav {
 .button { background: #247d72; }
 .eyebrow, .number, .step span { color: #226f65; }
 .step-three span { color: #a6d8c8; }
+
+/* Annual preview: semantic values, with context rather than fabricated outputs. */
+.annual-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 40px; margin-block: 26px; }
+.annual-grid :is(h3, h4) { font-size: 16px; margin: 0 0 16px; }
+.annual-values { margin: 0 0 16px; }
+.annual-values > div { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.annual-values dt { font-size: 14px; color: var(--muted); }
+.annual-values dd { font-size: 21px; font-weight: 650; margin: 0; white-space: nowrap; }
+.annual-values .subtotal { border-top: 2px solid var(--line); }
+.scenario-context { background: var(--off); border-radius: 8px; padding: 22px; }
+.connections { list-style: none; padding: 0; margin: 22px 0 0; }
+.connections li + li { margin-top: 16px; }
+.connections strong, .connections span { display: block; font-size: 14px; }
+.connections span { color: var(--muted); margin-top: 4px; }
+.preview-disclosure { border-top: 1px solid var(--line); padding-top: 18px; margin-bottom: 0; font-size: 13px; }
+.scope-note { margin: 20px 0 0; font-size: 14px; }
+.capabilities { padding-left: 22px; color: var(--muted); }
+.capabilities li { margin-block: 14px; }
+.capabilities strong { color: var(--navy); }
+.founder-story { border-left: 3px solid var(--teal); padding-left: 24px; margin-top: 40px; }
+.feature-symbol { gap: 12px; }
+.feature-symbol > span { font-size: 22px; }
+@media (max-width: 700px) { .annual-grid { grid-template-columns: 1fr; gap: 24px; } .annual-values dt { font-size: 13px; } .scenario-context { padding: 18px; } }
