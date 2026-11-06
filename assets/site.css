@@ -744,3 +744,11 @@ nav {
 .scenario-assumptions li { margin-top: 12px; }
 summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 @media (max-width: 700px) { .cliff-scenarios { grid-template-columns: 1fr; gap: 18px; } .cliff-card { padding: 20px; } }
+
+/* A quiet, readable privacy explanation beside the hero launch action. */
+.hero-privacy { display: flex; align-items: flex-start; gap: 10px; margin-top: 20px; max-width: 590px; }
+.privacy-icon { width: 21px; height: 21px; flex: 0 0 21px; color: var(--teal); margin-top: 2px; }
+.hero-privacy a { font-size: 13px; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
+.hero-privacy p { font-size: 12px; line-height: 1.65; margin: 7px 0 0; }
+.clear-plan-path { overflow-wrap: anywhere; }
+.notice-date { font-size: 12px; border-top: 1px solid var(--line); margin-top: 35px; padding-top: 18px; }
