@@ -34,6 +34,8 @@ Pages are standalone semantic HTML with shared CSS. When editing the navigation 
 python3 scripts/check_links.py
 bash scripts/build.sh
 python3 scripts/check_links.py dist
+python3 scripts/check_reference_example.py
+python3 scripts/check_reference_example.py dist
 ```
 
 The link checker validates local targets, fragments, one primary heading per page, canonical/Open Graph URLs, sitemap destinations, robots.txt, and pre-launch noindex metadata and Cloudflare header configuration. Build output contains public files only and is ignored by Git. It requires Bash and standard `cp`; no package installation is needed.
@@ -79,18 +81,18 @@ GapYears Lab is the broader early-retirement income-planning platform. Its first
 
 ## Content remaining before public launch
 
-- **Founder story:** obtain and approve the founder’s short account; the About section currently contains neutral editorial placeholder copy.
+- **Founder story:** review the completed draft based on approved themes, including the wording about more than 20 years of experience and leadership at Visa. No name, photo, degrees, or professional tax/investment credentials are included.
 - **Indexing and hosting:** review the safeguards above and verify actual Cloudflare response headers, custom-domain routing, and preview-host protection before enabling indexing.
 - **Privacy:** identify the operator, monitored contact details, hosting/provider practices, retention, and applicable rights after reviewing actual hosting settings. Current copy is explicitly provisional and makes no legal assurances.
 - **Disclaimer:** review the introductory educational disclaimer for the intended launch.
 - **Contact:** replace the coming-soon notice with a monitored contact channel. No invented email address is provided.
-- **Methodology:** document the actual planner's calculations, assumptions, data sources, limits, and update practices. The current page explains only the made-up website illustration.
+- **Methodology:** keep the accessible summaries aligned with the underlying validation reports and known filing-method limitations. Evidence and attribution notes are in `docs/positioning-evidence.md`.
 - **Learn:** three clearly labeled planned topics are previews, not published guides.
-- **Planner:** the live application is linked; keep its features and documentation aligned as it evolves. Figures illustrate annual income, a taxable Roth conversion, and simplified MAGI. They are not tax, ACA, savings, or optimizer results.
+- **Planner:** the live application is linked; keep its features and documentation aligned as it evolves. The homepage comparison transcribes the C07/C08 2026 reference cases; the planner overview keeps a separate made-up conceptual example. Neither is a live screenshot or a personalized recommendation.
 
 ## Validation recorded during implementation
 
-Internal links and sitemap targets passed; nine pages passed Chromium checks at five viewport widths (45 combinations), with no horizontal overflow, valid heading order, named navigation/controls, working keyboard skip focus, and functional preview/how-it-works links. Desktop and mobile screenshots were reviewed. Cloudflare deployment, production DNS, and a complete assistive-technology audit remain unverified.
+Internal links and sitemap targets passed; nine pages passed Chromium checks at five viewport widths (45 combinations), with no horizontal overflow, valid heading order, named navigation/controls, working keyboard skip focus, and functional launch/how-it-works links. Desktop and mobile screenshots were reviewed. Cloudflare deployment, production DNS, and a complete assistive-technology audit remain unverified.
 
 ## Refinement review limitations
 
@@ -99,3 +101,11 @@ The deployed pages.dev URL could not be fetched from the development environment
 ## Live planner link validation
 
 Website launch links target `https://app.gapyearslab.com` in the same tab. Responsive browser checks verify every launch link, absence of iframe embeds, and same-tab navigation using an intercepted destination (no app calculations are exercised). The development environment proxy denied direct access to the app hostname during this change, so live application availability and functionality were not independently verified. No application code or hosting configuration was modified.
+
+## Homepage positioning and evidence review
+
+The homepage now explains the ACA-focused audience and shows a 2026 threshold comparison from frozen reference cases, with assumptions and separate federal income tax and net insurance costs. Methodology summarizes documented validation, with tester attribution and filing-method caveats. The application repository is private; visitor-facing pages provide accessible summaries instead of private GitHub links.
+
+`docs/homepage-reference-2026.json` is a limited source-value extract, not a new financial model. `scripts/check_reference_example.py` checks all ten displayed amounts by formatting frozen expectations to cents. Read `docs/positioning-evidence.md` for source revision, documentation paths, scope, and founder review notes. Reviewed screenshots are in `docs/screenshots/`; none are fabricated application screenshots. These developer review files are excluded from the existing public build by its allowlisted copies.
+
+Supported planning year remains **2026**. No 2027 support or release date is promised. Noindex, navigation, deployment configuration, and Privacy/Disclaimer/Contact pages remain unchanged. Application validation reports were read but their financial suites were not rerun; no app repository or engine changes were made.

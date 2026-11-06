@@ -708,3 +708,35 @@ nav {
 @media (max-width: 700px) {
   .brand-logo { width: 220px; }
 }
+
+/* Focused audience, reference comparison, and validation presentation. */
+.hero-subhead { font-size: 20px; line-height: 1.5; font-weight: 650; color: var(--navy); }
+.audience { border-top: 1px solid var(--line); }
+.audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.audience-list { margin: 0; padding-left: 22px; color: var(--muted); }
+.audience-list li, .validation-practices li { margin-bottom: 14px; }
+.year-notice { font-size: 13px; padding: 16px 20px; background: var(--off); border-left: 3px solid var(--teal); margin-block: 20px 30px; }
+.comparison-scroll { overflow-x: auto; margin-block: 25px; }
+.comparison-scroll:focus-visible, summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+.comparison-table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; }
+.comparison-table caption { text-align: left; color: var(--muted); font-size: 12px; margin-bottom: 14px; }
+.comparison-table :is(th, td) { padding: 18px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.comparison-table thead { background: var(--off); }
+.comparison-table th { font-weight: 650; }
+.comparison-table th:first-child { width: 46%; }
+.comparison-table th span { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 4px; }
+.comparison-table td { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.combined-row { background: #eaf3ef; }
+.combined-row td { font-weight: 750; }
+.scenario-assumptions { border-block: 1px solid var(--line); padding-block: 16px; margin-bottom: 24px; }
+.scenario-assumptions summary { font-size: 14px; font-weight: 650; cursor: pointer; }
+.scenario-assumptions p { font-size: 14px; margin-top: 16px; }
+.validation-practices { color: var(--muted); padding-left: 22px; }
+.validation-practices strong { color: var(--navy); }
+@media (max-width: 700px) {
+  .audience-grid { grid-template-columns: 1fr; gap: 12px; }
+  .hero-subhead { font-size: 18px; }
+  .comparison-table { font-size: 12px; }
+  .comparison-table :is(th, td) { padding: 12px 8px; }
+  .comparison-table th span { font-size: 11px; }
+}
