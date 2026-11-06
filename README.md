@@ -47,7 +47,7 @@ npm install --prefix /tmp/gapyears-browser-checks playwright
 NODE_PATH=/tmp/gapyears-browser-checks/node_modules node scripts/check_browser.cjs
 ```
 
-Set `CHROMIUM_PATH` to use an existing Chromium executable, and `SITE_URL` to change the test origin. The script checks nine pages at widths 320, 360, 390, 768, and 1440 pixels, HTTP responses, horizontal overflow, heading order, named navigation/controls, keyboard skip focus, and preview/how-it-works destinations. Desktop/mobile screenshots are written to `/tmp`. It is a smoke check, not a full accessibility audit; review contrast, zoom, keyboard use, and screen-reader behavior when changing components.
+Set `CHROMIUM_PATH` to use an existing Chromium executable, and `SITE_URL` to change the test origin. The script checks nine pages at widths 320, 360, 390, 768, and 1440 pixels, HTTP responses, horizontal overflow, heading order, named navigation/controls, keyboard skip focus, and launch/how-it-works destinations. Desktop/mobile screenshots are written to `/tmp`. It is a smoke check, not a full accessibility audit; review contrast, zoom, keyboard use, and screen-reader behavior when changing components.
 
 ## Cloudflare Pages deployment
 
@@ -63,15 +63,15 @@ The current development deployment is https://gapyearslab-website.pages.dev/. Th
 
 Every HTML page currently carries `noindex, follow`, and `_headers` applies `X-Robots-Tag: noindex, follow` to every path in Cloudflare Pages. The build copies `_headers` to `dist`. This deliberately keeps both the development deployment and any custom-domain deployment unindexed until launch review is complete. Local Python serving does not interpret Cloudflare `_headers`.
 
-Canonical and Open Graph URLs remain on **https://gapyearslab.com/**. `robots.txt` allows crawling so search engines can read noindex directives, and references `https://gapyearslab.com/sitemap.xml`. It is not a privacy or access-control mechanism. The sitemap includes only the homepage, Planning Tools, and About; unfinished policy, contact, learning, methodology, and planner-preview pages are omitted. Do not submit the sitemap until launch approval and removal of noindex on reviewed public pages.
+Canonical and Open Graph URLs remain on **https://gapyearslab.com/**. `robots.txt` allows crawling so search engines can read noindex directives, and references `https://gapyearslab.com/sitemap.xml`. It is not a privacy or access-control mechanism. The sitemap includes only the homepage, Planning Tools, and About; unfinished policy, contact, learning, methodology, and planner overview pages are omitted. Do not submit the sitemap until launch approval and removal of noindex on reviewed public pages.
 
 At launch, review content and domain routing first, then deliberately revise the blanket `_headers` rule and per-page robots metadata for approved production pages. Keep unfinished pages noindex and keep **all `pages.dev` hosts** noindex using Cloudflare host-specific rules (or verified production redirects), including branch previews. Test actual response headers after deployment; do not simply remove the blanket rule while leaving the development host indexable.
 
 ## Planner integration
 
-All “Preview Planner” and “Preview the Income Planner” links currently lead to `/planner/`, an informative static preview. No requests are made to `app.gapyearslab.com`. The actual planner is maintained separately; this repository does not implement its calculation engine or modify its repository.
+“Launch Income Planner” links open **https://app.gapyearslab.com** in the same tab. The homepage and Planning Tools page also link to `/planner/`, the product overview and feature explanation. The illustrative annual example remains explicitly separate from genuine application results.
 
-Once the separate application is live and verified, update the relevant CTAs and document the integration. Publish actual methodology and privacy information based on that application's behavior first.
+The website and planner remain separate GitHub repositories and Cloudflare Pages projects. There is no iframe, shared calculation engine, or app code in this repository. The website’s pre-launch indexing safeguards remain unchanged; release them only after the existing content and hosting review.
 
 ## Product scope
 
@@ -86,7 +86,7 @@ GapYears Lab is the broader early-retirement income-planning platform. Its first
 - **Contact:** replace the coming-soon notice with a monitored contact channel. No invented email address is provided.
 - **Methodology:** document the actual planner's calculations, assumptions, data sources, limits, and update practices. The current page explains only the made-up website illustration.
 - **Learn:** three clearly labeled planned topics are previews, not published guides.
-- **Planner:** replace the static preview only when the separate application is available. Figures illustrate annual income, a taxable Roth conversion, and simplified MAGI. They are not tax, ACA, savings, or optimizer results.
+- **Planner:** the live application is linked; keep its features and documentation aligned as it evolves. Figures illustrate annual income, a taxable Roth conversion, and simplified MAGI. They are not tax, ACA, savings, or optimizer results.
 
 ## Validation recorded during implementation
 
@@ -95,3 +95,7 @@ Internal links and sitemap targets passed; nine pages passed Chromium checks at 
 ## Refinement review limitations
 
 The deployed pages.dev URL could not be fetched from the development environment because its outbound proxy denied that host. Validation therefore uses the repository’s built output locally; this is not verification of deployed content or live Cloudflare headers. No deployment or separate Income Planner application changes were made.
+
+## Live planner link validation
+
+Website launch links target `https://app.gapyearslab.com` in the same tab. Responsive browser checks verify every launch link, absence of iframe embeds, and same-tab navigation using an intercepted destination (no app calculations are exercised). The development environment proxy denied direct access to the app hostname during this change, so live application availability and functionality were not independently verified. No application code or hosting configuration was modified.
