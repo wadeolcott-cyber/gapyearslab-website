@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, follow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Methodology | GapYears Lab</title>
-<meta name="description" content="Understand the annual website illustration, the Income Planner’s current scope, and application methodology documentation still needed.">
+<title>Income Planner Methodology &amp; Validation | GapYears Lab</title>
+<meta name="description" content="Understand the 2026 reference cases, regression checks, external federal tax comparisons, reported manual validation, and Income Planner limitations.">
 <link rel="canonical" href="https://gapyearslab.com/methodology/">
 <meta name="theme-color" content="#19364B">
-<meta property="og:title" content="Methodology | GapYears Lab">
-<meta property="og:description" content="Understand the annual website illustration, the Income Planner’s current scope, and application methodology documentation still needed.">
+<meta property="og:title" content="Income Planner Methodology &amp; Validation | GapYears Lab">
+<meta property="og:description" content="Understand the 2026 reference cases, regression checks, external federal tax comparisons, reported manual validation, and Income Planner limitations.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gapyearslab.com/methodology/">
 <link rel="icon" href="/assets/branding/favicon.ico" sizes="any">
@@ -18,6 +18,14 @@
 <link rel="icon" href="/assets/branding/favicon-48.png" type="image/png" sizes="48x48">
 <link rel="apple-touch-icon" href="/assets/branding/icon-180.png" sizes="180x180">
 <link rel="stylesheet" href="/assets/site.css">
+<meta property="og:site_name" content="GapYears Lab">
+<meta property="og:image" content="https://gapyearslab.com/assets/branding/logo-full.png">
+<meta property="og:image:alt" content="GapYears Lab logo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Income Planner Methodology &amp; Validation | GapYears Lab">
+<meta name="twitter:description" content="Understand the 2026 reference cases, regression checks, external federal tax comparisons, reported manual validation, and Income Planner limitations.">
+<meta name="twitter:image" content="https://gapyearslab.com/assets/branding/icon-512.png">
+<meta name="twitter:image:alt" content="GapYears Lab icon">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -42,19 +50,45 @@
 <main id="main" tabindex="-1">
 <section class="page-heading container">
 <p class="eyebrow">OUR APPROACH</p>
-<h1>Methodology</h1>
-<p class="lead">Clear assumptions make for better questions.</p>
+<h1>Clear assumptions. Checkable estimates.</h1>
+<p class="lead">Understand what we test, what the results mean, and where the Income Planner’s limits still matter.</p>
+<p class="year-notice">
+<strong>Supported planning year: 2026.</strong> The Income Planner currently models 2026 federal income tax and ACA rules, using 2025 poverty guidelines for 2026 Marketplace coverage.</p>
 </section>
 <section class="container content prose">
-<h2>Website illustration, not application results</h2>
-<p>The annual preview uses made-up figures: $24,000 in part-time earnings, an $18,000 taxable traditional IRA withdrawal, and $2,000 in interest. These total $44,000 before a $10,000 taxable Roth conversion.</p>
-<p>The $54,000 illustrative modified adjusted gross income (MAGI) assumes no adjustments or other MAGI additions. A Roth conversion transfers assets between accounts and is not extra spending cash. Actual tax and ACA MAGI definitions and household circumstances matter.</p>
-<p>The preview does not calculate taxes, insurance premiums, premium tax credits, savings, or recommendations. It is not an optimized scenario.</p>
-<h2>Current application scope</h2>
-<p>The separate GapYears Income Planner focuses on annual income sources, estimated federal income taxes only, ACA premiums and premium tax credits, Roth conversion opportunities, and scenario comparison. It does not provide comprehensive multi-year retirement projections, portfolio longevity calculations, or Social Security optimization.</p>
-<p class="scope-note">Tax estimates cover federal income taxes only. State income taxes and payroll/self-employment taxes are not currently modeled.</p>
-<h2>Application methodology: documentation pending</h2>
-<p>Application documentation still needs to cover the application’s supported tax years, calculation methods, ACA eligibility assumptions, data sources, limitations, and update practices. This website illustration does not validate the application’s calculations.</p>
+<h2>How we check our calculations</h2>
+<p>Different checks provide different kinds of evidence. Together they help us review supported planning scenarios; they do not establish complete tax-return accuracy.</p>
+<ol class="validation-practices">
+<li>
+<strong>Independently derived 2026 reference cases.</strong> Expected planning results are derived separately from the application’s calculation code, then compared with its outputs.</li>
+<li>
+<strong>Automated regression tests.</strong> Tests check defined behaviors and safeguards so changes are less likely to alter previously checked results unexpectedly.</li>
+<li>
+<strong>External federal tax comparisons.</strong> The financial validation report records 59 regular federal income tax comparisons matching Tax-Calculator 6.8.5 for supported scenarios. That comparison does not validate ACA eligibility or a complete tax return.</li>
+<li>
+<strong>Manual checks through the deployed app.</strong> The merged November 5, 2026 report records a human tester’s verification of eight financial scenario groups, with all eight reported as matching expected reference results. The report preserves that tester attribution; it is not an independently reproduced, field-by-field audit.</li>
+<li>
+<strong>Documented limits.</strong> The application documents unsupported financial situations, assumptions that require review, and known differences between planning estimates and filing methods.</li>
+</ol>
+<h2 id="reference-case">The homepage’s 2026 threshold example</h2>
+<p>The comparison transcribes stored reference cases C07 and C08, not invented results or a fabricated application screenshot. Both use married filing jointly, an ACA household of four in the contiguous United States, taxable retirement withdrawals only, and all twelve months of qualifying Marketplace coverage.</p>
+<p>The monthly selected plan and benchmark Silver premiums are $1,000 and $1,200. With no other income, adjustments, or itemization, the cases use a $32,200 standard deduction and $32,150 household poverty guideline (2025 guidelines for 2026 coverage). Other coverage and eligibility assumptions are held fixed.</p>
+<p>C07 is exactly at the modeled 400% poverty guideline threshold: $128,600.00 in annual MAGI. C08 is one cent above it. The reference credit changes from $1,591.44 to $0.00; combined federal income tax and net insurance cost changes from $21,480.56 to $23,072.00, displayed to cents. Federal income tax and net insurance cost are shown separately on the homepage.</p>
+<p>This is a threshold-specific effect. Household size and location change the threshold, and an extra dollar of income does not always produce a cliff. Net insurance cost means selected plan premiums less the final modeled credit, not out-of-pocket medical spending or an advance-credit settlement.</p>
+<h2>What the validation does not establish</h2>
+<p>The application uses regular pre-credit federal income tax estimates and conditional ACA assumptions. Federal estimates use marginal rate schedules rather than final IRS Tax Table bands. ACA estimates use continuous poverty-guideline ratios and contribution calculations; final-year filing instructions, rounding, eligibility, and Form 1095-A records can produce different results.</p>
+<p>Planning estimates may differ from actual federal tax returns and Marketplace determinations. These checks are not independent certification, IRS approval, professional tax approval, or comprehensive financial validation.</p>
+<h2>Current scope and important exclusions</h2>
+<p>The Income Planner supports annual income modeling, estimated federal income taxes, ACA premium tax credits, Roth conversion exploration, standard investment gains and losses, and scenario comparisons for 2026.</p>
+<p>It does not provide state or local income tax calculations, payroll or self-employment tax calculations, complete tax-return preparation, or full health insurance eligibility determinations. Other exclusions include AMT, NIIT, other federal credits, and certain special investment and deduction treatments.</p>
+<p>It does not provide comprehensive multi-year retirement projections, portfolio longevity calculations, or Social Security optimization. Unsupported cases and independently supplied eligibility assumptions need review before relying on estimates.</p>
+<h2>About the supporting documentation</h2>
+<p>The summaries above reflect the application’s financial validation report, limitations document, illustrative example specification, frozen 2026 reference fixtures, and merged manual production validation report. The application repository is private, so this page provides accessible summaries instead of links that visitors cannot open.</p>
+<p>The application’s separate illustrative Example Plan uses a different income mix and insurance premiums. It must not be confused with the C07/C08 threshold cases shown here.</p>
+<div class="actions">
+<a class="button" href="https://app.gapyearslab.com">Launch Income Planner</a>
+<a class="text-link" href="/planner/">Explore the planner’s features</a>
+</div>
 </section>
 </main>
 <footer>
