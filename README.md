@@ -75,7 +75,7 @@ The website and planner remain separate GitHub repositories and Cloudflare Pages
 
 ## Product scope
 
-GapYears Lab is the broader early-retirement income-planning platform. Its first application, the existing GapYears Income Planner, focuses on annual income sources, estimated federal and applicable state income taxes, ACA premiums and premium tax credits, Roth conversion opportunities, and scenario comparison of overall annual financial outcomes. It does not currently offer comprehensive multi-year retirement projections, portfolio longevity calculations, or Social Security optimization.
+GapYears Lab is the broader early-retirement income-planning platform. Its first application, the existing GapYears Income Planner, focuses on annual income sources, estimated federal income taxes only, ACA premiums and premium tax credits, Roth conversion opportunities, and scenario comparison of overall annual financial outcomes. State income taxes and payroll/self-employment taxes are not currently modeled. It does not currently offer comprehensive multi-year retirement projections, portfolio longevity calculations, or Social Security optimization.
 
 ## Content remaining before public launch
 
