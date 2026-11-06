@@ -83,7 +83,7 @@ GapYears Lab is the broader early-retirement income-planning platform. Its first
 
 - **Founder story:** review the completed draft based on approved themes, including the wording about more than 20 years of experience and leadership at Visa. No name, photo, degrees, or professional tax/investment credentials are included.
 - **Indexing and hosting:** review the safeguards above and verify actual Cloudflare response headers, custom-domain routing, and preview-host protection before enabling indexing.
-- **Privacy:** identify the operator, monitored contact details, hosting/provider practices, retention, and applicable rights after reviewing actual hosting settings. Current copy is explicitly provisional and makes no legal assurances.
+- **Privacy:** review provider/infrastructure and feedback settings, contact availability, and any applicable visitor rights. Set the notice’s actual publication date when it goes live; this PR does not claim publication or verified retention periods.
 - **Disclaimer:** review the introductory educational disclaimer for the intended launch.
 - **Contact:** replace the coming-soon notice with a monitored contact channel. No invented email address is provided.
 - **Methodology:** keep the accessible summaries aligned with the underlying validation reports and known filing-method limitations. Evidence and attribution notes are in `docs/positioning-evidence.md`.
@@ -114,8 +114,16 @@ Supported planning year remains **2026**. No 2027 support or release date is pro
 
 Cloudflare Web Analytics is manually installed once immediately before `</body>` on all ten public HTML pages, including the custom 404. The public site identifier is `2c066b4f0f454d73b66d63f1630e8c43`; it is not a credential. Automatic injection is managed separately in Cloudflare and must remain disabled to avoid duplicates. No custom events or financial inputs, plan data, form contents, or personal identifiers are attached by website code. The separate Income Planner repository and its CSP/storage/privacy controls are not modified.
 
-**Privacy disclosure required:** the provisional Privacy page still says the website has no analytics scripts. Its disclosure must be reviewed and updated to describe Cloudflare Web Analytics and that visitor and performance information may be processed by Cloudflare. This installation intentionally leaves page content unchanged. Do not invent retention periods or legal assurances.
+**Privacy disclosure:** the Privacy page now distinguishes browser-local financial plans from website analytics and hosting metadata. Provider retention, infrastructure, external feedback settings, and contact availability still need operational review; no unverified retention periods or legal assurances are stated.
 
 No repository CSP or CSP meta tags were found, and the development site's observed response had no CSP header; no CSP changes were needed. The environment proxy blocked inspection of the production domain's response headers. Check any Cloudflare-managed CSP on the public domain after deployment: it must permit the module from `https://static.cloudflareinsights.com` and the beacon's request destinations (including `https://cloudflareinsights.com`). Scope any needed adjustment to this website only; do not change the planner CSP.
 
 Live collection remains unverified until deployment. On production, confirm one beacon script per page, successful module loading and beacon requests without CSP errors, and traffic appearing in the correct Web Analytics property. Check the custom 404 as well. Local browser tests validate layout/navigation with the external module intercepted; they do not establish live collection. Noindex and existing Cloudflare Pages configuration remain unchanged.
+
+## Browser-local financial data notice
+
+The homepage privacy statement links to `/privacy/`. The revised notice reflects the merged application privacy audit (`docs/security/financial-data-privacy-audit-2026.md`, PR #39), reviewed implementation `fa728da988c0f6d7952f39b9ab50258aa8a3c1ed`, and the operator-reported subsequent live Chrome DevTools checks supplied for this content task. Those live observations are explicitly distinguished from the source/local-runtime audit; they were not rerun by this website update.
+
+No app accounts or brokerage connections are required by the reviewed application. Calculations and workers execute in the browser; autosave uses unencrypted origin-local storage when available. Exports are unencrypted, import is local, and clearing saved entries is not secure erasure. Shared profiles, extensions, compromised devices, files/backups and other tabs remain relevant risks. Hosting/website analytics metadata and voluntary external submissions are distinct from automatic financial uploads.
+
+**Publication follow-up:** this change prepares a PR, not a deployment. The Privacy page does not falsely claim November 6, 2026 as its publication date; replace the pending-publication line with the actual date when the notice goes live (use November 6 only if published that day). The Contact page still has no configured public channel and is a launch-readiness issue. Cloudflare infrastructure/log-retention and external feedback-form settings were not fully verified. No absolute security, encryption, anonymity, or legal-compliance assurances are made.
