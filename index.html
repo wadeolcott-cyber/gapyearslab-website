@@ -107,73 +107,124 @@
 <div class="section-heading">
 <div>
 <p class="eyebrow">SEE WHY THE CONNECTIONS MATTER</p>
-<h2>A penny can cross a meaningful threshold.</h2>
+<h2>Capital gains can change more than your tax bill.</h2>
 </div>
 </div>
 <p class="year-notice">
 <strong>Supported planning year: 2026.</strong> The Income Planner currently models 2026 federal income tax and ACA rules, using 2025 poverty guidelines for 2026 Marketplace coverage.</p>
 <section class="planner-window reference-demo" aria-labelledby="comparison-title">
 <div class="window-top">
-<span>GapYears Income Planner · reference case</span>
-<span class="demo">ILLUSTRATIVE 2026 SCENARIO</span>
+<span>GapYears Income Planner · validated reference example</span>
+<span class="demo">HYPOTHETICAL 2026 SCENARIO</span>
 </div>
 <div class="planner-body">
-<h3 id="comparison-title">The modeled ACA subsidy cliff</h3>
-<p>In this specific example, one cent of additional annual modified adjusted gross income (MAGI) crosses the modeled 400% federal poverty guideline threshold and eliminates the estimated premium tax credit.</p>
-<div class="comparison-scroll" role="region" aria-label="2026 ACA threshold comparison" tabindex="0">
-<table class="comparison-table">
-<caption>Annual estimates from independently derived reference cases C07 and C08. Amounts displayed to the nearest cent.</caption>
-<thead>
-<tr>
-<th scope="col">Annual measure</th>
-<th scope="col">Scenario A<span>At the threshold</span>
-</th>
-<th scope="col">Scenario B<span>Just above the threshold</span>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr data-measure="magi">
-<th scope="row">ACA MAGI</th>
-<td>$128,600.00</td>
-<td>$128,600.01</td>
-</tr>
-<tr data-measure="federalTax">
-<th scope="row">Estimated federal income tax<span>Regular income tax, before credits</span>
-</th>
-<td>$11,072.00</td>
-<td>$11,072.00</td>
-</tr>
-<tr data-measure="ptc">
-<th scope="row">Estimated final ACA premium tax credit</th>
-<td>$1,591.44</td>
-<td>$0.00</td>
-</tr>
-<tr data-measure="netPremium">
-<th scope="row">Net annual insurance cost<span>Selected plan premiums less final credit</span>
-</th>
-<td>$10,408.56</td>
-<td>$12,000.00</td>
-</tr>
-<tr class="combined-row" data-measure="combinedCost">
-<th scope="row">Combined estimated federal income tax + net insurance cost</th>
-<td>$21,480.56</td>
-<td>$23,072.00</td>
-</tr>
-</tbody>
-</table>
+<h3 id="comparison-title">$0 in federal regular income tax. A $23,191.44 healthcare subsidy difference.</h3>
+<p>Selling appreciated investments can affect more than your taxes. In this validated 2026 example, one cent of additional realized long-term capital gains crosses a modeled ACA income threshold, eliminating $23,191.44 in estimated annual premium tax credits. Modeled federal regular income tax stays at $0 in both scenarios.</p>
+<p class="cliff-difference">
+<span>Increase in modeled annual cost</span>
+<strong data-measure="combinedCostIncrease">$23,191.44</strong>
+<span>Entirely from the lost premium tax credit in this specific example.</span>
+</p>
+<div class="cliff-scenarios">
+<article class="cliff-card" aria-labelledby="scenario-a">
+<h4 id="scenario-a">Scenario A</h4>
+<p class="scenario-subtitle">At the modeled threshold</p>
+<dl class="cliff-values">
+<div>
+<dt>Nonqualified dividends</dt>
+<dd data-measure="nonQualifiedDividends">$27,000.00</dd>
 </div>
+<div>
+<dt>Qualified dividends</dt>
+<dd data-measure="qualifiedDividends">$13,000.00</dd>
+</div>
+<div>
+<dt>Realized long-term capital gains</dt>
+<dd data-measure="longTermGains">$88,600.00</dd>
+</div>
+<div>
+<dt>ACA MAGI</dt>
+<dd data-measure="magi">$128,600.00</dd>
+</div>
+<div>
+<dt>Federal regular income tax</dt>
+<dd data-measure="federalTax">$0.00</dd>
+</div>
+<div>
+<dt>Final estimated ACA premium tax credit</dt>
+<dd data-measure="ptc">$23,191.44</dd>
+</div>
+<div>
+<dt>Net annual insurance cost</dt>
+<dd data-measure="netPremium">$6,808.56</dd>
+</div>
+<div class="combined-value">
+<dt>Combined modeled federal tax + insurance cost</dt>
+<dd data-measure="combinedCost">$6,808.56</dd>
+</div>
+</dl>
+</article>
+<article class="cliff-card" aria-labelledby="scenario-b">
+<h4 id="scenario-b">Scenario B</h4>
+<p class="scenario-subtitle">One cent above the modeled threshold</p>
+<dl class="cliff-values">
+<div>
+<dt>Nonqualified dividends</dt>
+<dd data-measure="nonQualifiedDividends">$27,000.00</dd>
+</div>
+<div>
+<dt>Qualified dividends</dt>
+<dd data-measure="qualifiedDividends">$13,000.00</dd>
+</div>
+<div>
+<dt>Realized long-term capital gains</dt>
+<dd data-measure="longTermGains">$88,600.01</dd>
+</div>
+<div>
+<dt>ACA MAGI</dt>
+<dd data-measure="magi">$128,600.01</dd>
+</div>
+<div>
+<dt>Federal regular income tax</dt>
+<dd data-measure="federalTax">$0.00</dd>
+</div>
+<div>
+<dt>Final estimated ACA premium tax credit</dt>
+<dd data-measure="ptc">$0.00</dd>
+</div>
+<div>
+<dt>Net annual insurance cost</dt>
+<dd data-measure="netPremium">$30,000.00</dd>
+</div>
+<div class="combined-value">
+<dt>Combined modeled federal tax + insurance cost</dt>
+<dd data-measure="combinedCost">$30,000.00</dd>
+</div>
+</dl>
+</article>
+</div>
+<section class="cliff-explainer" aria-labelledby="why-zero-tax">
+<h4 id="why-zero-tax">Why can federal income tax be zero while healthcare costs increase?</h4>
+<p>Qualified dividends and eligible long-term capital gains may receive preferential federal tax rates. In this investment-income mix, the standard deduction and 0% rate band leave no modeled federal regular income tax. But realized gains still count toward ACA modified adjusted gross income (MAGI), which can change the premium tax credit.</p>
+<p>These are realized taxable gains, not gross sale proceeds. Realizing gains is not inherently a poor decision; the example shows why it helps to consider taxes and healthcare costs together.</p>
+</section>
 <details class="scenario-assumptions">
 <summary>Assumptions behind this example</summary>
-<p>Tax and coverage year 2026; married filing jointly; ACA household of four; contiguous United States; qualifying Marketplace coverage January–December. Each month uses a $1,000 selected plan premium and a $1,200 benchmark Silver premium.</p>
-<p>Income consists entirely of taxable retirement withdrawals ($128,600.00 or $128,600.01), with no other income, adjustments, or itemized deductions. The reference uses the $32,200 standard deduction and the $32,150 household poverty guideline for 2025. It assumes lawful presence, qualifying full-month coverage, and no other minimum essential coverage eligibility. No advance-credit reconciliation is shown.</p>
+<ul>
+<li>2026 tax and coverage year; married filing jointly; ACA household size four; contiguous United States/DC; neither spouse claimed as a dependent.</li>
+<li>Annual nonqualified dividends of $27,000.00 and qualified dividends of $13,000.00 in both cases. Realized long-term gains of $88,600.00 in A and $88,600.01 in B. No wages, retirement withdrawals, Roth conversions, other income, adjustments, capital losses, or prior loss carryforwards.</li>
+<li>Base standard deduction of $32,200, with no additional age/blindness deductions or itemization. Qualified dividends and gains meet the preferential-rate requirements.</li>
+<li>Hypothetical monthly selected plan premium of $2,500 and benchmark Silver premium of $3,000, January–December. These are not real Marketplace quotes.</li>
+<li>All required premium tax credit eligibility conditions are assumed satisfied, with full-month qualifying Marketplace coverage, lawful presence, and no other qualifying coverage eligibility, special allocations, or unsupported arrangements. Advance credits are explicitly $0 in every month.</li>
+<li>The 2025 poverty guideline for this household is $32,150, used for 2026 coverage. Its modeled 400% threshold is $128,600.00. Household size and location change the threshold.</li>
+<li>Federal tax means regular pre-credit income tax only. State/local, payroll/self-employment, NIIT, AMT, other credits, and unsupported tax treatments are excluded. Net insurance cost is annual selected-plan premiums less final modeled credit, not medical out-of-pocket spending or premiums paid during the year.</li>
+</ul>
 </details>
 <p class="preview-disclosure">
-<strong>A threshold-specific example, not a general rule.</strong> The exact threshold depends on household size and location. Not every additional dollar of income causes a subsidy cliff. These are stored planning-model reference estimates, not a screenshot, personal recommendation, or observed live-session readings. Actual federal tax returns and Marketplace determinations may differ.</p>
-<p class="scope-note">State/local income taxes and payroll/self-employment taxes are not modeled.</p>
+<strong>A specific threshold effect, not a universal result.</strong> Not every additional dollar of income causes a large subsidy loss. Actual credits depend on household eligibility, location, age, premiums, and other circumstances. This one-cent boundary illustrates the continuous planning model; IRS whole-dollar reporting, final-year instructions, eligibility determinations, and Form 1095-A records may change filed results. It is not individualized advice or guaranteed Marketplace eligibility.</p>
 <div class="actions">
 <a class="button" href="https://app.gapyearslab.com">Launch Income Planner</a>
-<a class="text-link" href="/methodology/#reference-case">Read the reference-case explanation</a>
+<a class="text-link" href="/methodology/#reference-case">How we validate these calculations</a>
 </div>
 </div>
 </section>

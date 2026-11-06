@@ -67,7 +67,26 @@ const paths = ['/', '/planning-tools/', '/planner/', '/learn/', '/about/',
       await launch.click();
       if (page.url() !== 'https://app.gapyearslab.com/') throw Error('Launch destination');
       await page.goto(origin + '/');
-      await page.getByRole('link', { name: 'How It Works' }).click();
+      const summary = page.getByText('Assumptions behind this example', { exact: true });
+      await summary.focus();
+      await page.keyboard.press('Enter');
+      if (!(await page.locator('.scenario-assumptions').evaluate(el => el.open))) {
+        throw Error('Assumptions disclosure does not open from the keyboard');
+      }
+      await page.keyboard.press('Enter');
+      const cards = await page.locator('.cliff-card').evaluateAll(elements => elements.map(el => {
+        const box = el.getBoundingClientRect();
+        return { x: box.x, y: box.y, bottom: box.bottom };
+      }));
+      if (cards.length !== 2) throw Error('Missing scenario cards');
+      if (width <= 700 && cards[1].y < cards[0].bottom) throw Error('Mobile scenarios must stack');
+      if (width > 700 && Math.abs(cards[0].y - cards[1].y) > 1) throw Error('Desktop scenarios must be side by side');
+      await page.getByRole('link', { name: 'How we validate these calculations', exact: true }).click();
+      if (new URL(page.url()).pathname !== '/methodology/' || new URL(page.url()).hash !== '#reference-case') {
+        throw Error('Methodology link destination');
+      }
+      await page.goto(origin + '/');
+      await page.getByRole('link', { name: 'See How It Works' }).click();
       if (new URL(page.url()).hash !== '#how-it-works') throw Error('How It Works destination');
       if (width === 1440 || width === 390) {
         await page.screenshot({ path: `/tmp/gapyears-${width}.png`, fullPage: true });

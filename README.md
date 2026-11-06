@@ -88,7 +88,7 @@ GapYears Lab is the broader early-retirement income-planning platform. Its first
 - **Contact:** replace the coming-soon notice with a monitored contact channel. No invented email address is provided.
 - **Methodology:** keep the accessible summaries aligned with the underlying validation reports and known filing-method limitations. Evidence and attribution notes are in `docs/positioning-evidence.md`.
 - **Learn:** three clearly labeled planned topics are previews, not published guides.
-- **Planner:** the live application is linked; keep its features and documentation aligned as it evolves. The homepage comparison transcribes the C07/C08 2026 reference cases; the planner overview keeps a separate made-up conceptual example. Neither is a live screenshot or a personalized recommendation.
+- **Planner:** the live application is linked; keep its features and documentation aligned as it evolves. The homepage comparison transcribes the validated 2026 capital-gains ACA threshold cases; the planner overview keeps a separate made-up conceptual example. Neither is a live screenshot or a personalized recommendation.
 
 ## Validation recorded during implementation
 
@@ -106,6 +106,6 @@ Website launch links target `https://app.gapyearslab.com` in the same tab. Respo
 
 The homepage now explains the ACA-focused audience and shows a 2026 threshold comparison from frozen reference cases, with assumptions and separate federal income tax and net insurance costs. Methodology summarizes documented validation, with tester attribution and filing-method caveats. The application repository is private; visitor-facing pages provide accessible summaries instead of private GitHub links.
 
-`docs/homepage-reference-2026.json` is a limited source-value extract, not a new financial model. `scripts/check_reference_example.py` checks all ten displayed amounts by formatting frozen expectations to cents. Read `docs/positioning-evidence.md` for source revision, documentation paths, scope, and founder review notes. Reviewed screenshots are in `docs/screenshots/`; none are fabricated application screenshots. These developer review files are excluded from the existing public build by its allowlisted copies.
+`docs/capital-gains-homepage-reference-2026.json` is the current limited source-value extract, not a new financial model. `scripts/check_reference_example.py` checks sixteen displayed scenario amounts and the cost difference against frozen expectations. The earlier withdrawal-case extract is retained unchanged as historical evidence. Read `docs/capital-gains-example-evidence.md` for the current scenario sources and scope; `docs/positioning-evidence.md` records the earlier positioning and founder review. Reviewed screenshots are in `docs/screenshots/`; none are fabricated application screenshots. These developer review files are excluded from the existing public build by its allowlisted copies.
 
 Supported planning year remains **2026**. No 2027 support or release date is promised. Noindex, navigation, deployment configuration, and Privacy/Disclaimer/Contact pages remain unchanged. Application validation reports were read but their financial suites were not rerun; no app repository or engine changes were made.

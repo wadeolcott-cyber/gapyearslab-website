@@ -1,6 +1,6 @@
-"""Check displayed reference values against the transcribed frozen application cases.
+"""Check presentation against a transcription of the merged independent fixture.
 
-No financial calculations: only formatting source expectations for presentation.
+Only format expected values; do not run or recreate financial calculations.
 """
 import json
 from decimal import Decimal, ROUND_HALF_UP
@@ -14,33 +14,37 @@ ROOT = Path(sys.argv[1]).resolve() if len(sys.argv) > 1 else SOURCE
 class Comparison(HTMLParser):
     def __init__(self, text):
         super().__init__()
-        self.rows = {}
+        self.values = {}
         self.measure = None
-        self.cell = None
+        self.tag = None
+        self.value = ''
         self.feed(text)
     def handle_starttag(self, tag, attrs):
-        if tag == 'tr':
-            self.measure = dict(attrs).get('data-measure')
-            if self.measure:
-                self.rows[self.measure] = []
-        if tag == 'td' and self.measure:
-            self.cell = ''
+        measure = dict(attrs).get('data-measure')
+        if measure:
+            self.measure, self.tag, self.value = measure, tag, ''
     def handle_data(self, data):
-        if self.cell is not None:
-            self.cell += data
+        if self.measure:
+            self.value += data
     def handle_endtag(self, tag):
-        if tag == 'td' and self.cell is not None:
-            self.rows[self.measure].append(self.cell.strip())
-            self.cell = None
-        if tag == 'tr':
-            self.measure = None
+        if tag == self.tag:
+            self.values.setdefault(self.measure, []).append(self.value.strip())
+            self.measure = self.tag = None
 
-data = json.loads((SOURCE/'docs/homepage-reference-2026.json').read_text(), parse_float=Decimal)
-comparison = Comparison((ROOT/'index.html').read_text())
-assert len(data['cases']) == 2
-for measure in ['magi', 'federalTax', 'ptc', 'netPremium', 'combinedCost']:
-    expected = [f"${Decimal(c['expected'][measure]).quantize(Decimal('.01'), rounding=ROUND_HALF_UP):,.2f}"
+def dollars(value):
+    return f"${Decimal(value).quantize(Decimal('.01'), rounding=ROUND_HALF_UP):,.2f}"
+
+data = json.loads((SOURCE/'docs/capital-gains-homepage-reference-2026.json').read_text(), parse_float=Decimal)
+text = (ROOT/'index.html').read_text()
+comparison = Comparison(text)
+assert [c['id'] for c in data['cases']] == ['CG-CLIFF-A', 'CG-CLIFF-B']
+for measure in ['nonQualifiedDividends', 'qualifiedDividends', 'longTermGains',
+                'magi', 'federalTax', 'ptc', 'netPremium', 'combinedCost']:
+    source = 'income' if measure in ['nonQualifiedDividends', 'qualifiedDividends', 'longTermGains'] else 'expected'
+    expected = [dollars(c['input']['income'][measure] if source == 'income' else c['expected'][measure])
                 for c in data['cases']]
-    assert comparison.rows[measure] == expected, (measure, comparison.rows[measure], expected)
-assert 'FOUNDER STORY · PLACEHOLDER' not in (ROOT/'about/index.html').read_text()
-print('PASS: all 10 comparison amounts match C07/C08 reference values to cents; no founder placeholder.')
+    assert comparison.values[measure] == expected, (measure, comparison.values[measure], expected)
+assert comparison.values['combinedCostIncrease'] == [dollars(data['combinedCostIncrease'])]
+assert '$1,591' not in text
+assert 'income consists entirely of taxable retirement withdrawals' not in text.lower()
+print('PASS: 16 scenario amounts and the cost difference match the merged capital-gains reference to cents.')
