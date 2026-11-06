@@ -1,0 +1,281 @@
+{
+  "source_repository": "wadeolcott-cyber/aca-income-optimizer",
+  "source_revision": "fa728da988c0f6d7952f39b9ab50258aa8a3c1ed",
+  "source_path": "tests/fixtures/financial-validation/capital-gains-aca-cliff-2026.json",
+  "note": "Limited transcription, no new financial calculations; existing validated fixtures unchanged.",
+  "cases": [
+    {
+      "id": "CG-CLIFF-A",
+      "input": {
+        "taxYear": 2026,
+        "household": {
+          "filingStatus": "joint",
+          "taxFamilySize": 4,
+          "region": "contiguous",
+          "claimedAsDependent": false
+        },
+        "income": {
+          "wages": 0,
+          "taxableInterest": 0,
+          "nonQualifiedDividends": 27000.0,
+          "qualifiedDividends": 13000.0,
+          "shortTermGains": 0,
+          "longTermGains": 88600.0,
+          "retirementWithdrawals": 0,
+          "rothConversion": 0,
+          "otherTaxableIncome": 0,
+          "adjustments": 0,
+          "taxExemptInterest": 0,
+          "nonTaxableSocialSecurity": 0,
+          "dependentRequiredFilingMagi": 0
+        },
+        "itemizedDeduction": 0,
+        "insurance": {
+          "coverageYear": 2026,
+          "months": [
+            {
+              "month": 1,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 2,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 3,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 4,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 5,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 6,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 7,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 8,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 9,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 10,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 11,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 12,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "magi": 128600.0,
+        "federalTax": 0.0,
+        "ptc": 23191.44,
+        "netPremium": 6808.56,
+        "combinedCost": 6808.56
+      }
+    },
+    {
+      "id": "CG-CLIFF-B",
+      "input": {
+        "taxYear": 2026,
+        "household": {
+          "filingStatus": "joint",
+          "taxFamilySize": 4,
+          "region": "contiguous",
+          "claimedAsDependent": false
+        },
+        "income": {
+          "wages": 0,
+          "taxableInterest": 0,
+          "nonQualifiedDividends": 27000.0,
+          "qualifiedDividends": 13000.0,
+          "shortTermGains": 0,
+          "longTermGains": 88600.01,
+          "retirementWithdrawals": 0,
+          "rothConversion": 0,
+          "otherTaxableIncome": 0,
+          "adjustments": 0,
+          "taxExemptInterest": 0,
+          "nonTaxableSocialSecurity": 0,
+          "dependentRequiredFilingMagi": 0
+        },
+        "itemizedDeduction": 0,
+        "insurance": {
+          "coverageYear": 2026,
+          "months": [
+            {
+              "month": 1,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 2,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 3,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 4,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 5,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 6,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 7,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 8,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 9,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 10,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 11,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            },
+            {
+              "month": 12,
+              "planPremium": 2500,
+              "benchmarkPremium": 3000,
+              "marketplaceEnrolled": true,
+              "lawfullyPresent": true,
+              "otherMinimumEssentialCoverageEligible": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "magi": 128600.01,
+        "federalTax": 0.0,
+        "ptc": 0.0,
+        "netPremium": 30000.0,
+        "combinedCost": 30000.0
+      }
+    }
+  ],
+  "combinedCostIncrease": 23191.44
+}
