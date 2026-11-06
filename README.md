@@ -10,7 +10,7 @@ Use Python 3 (no packages required):
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000` in your own browser. Edit HTML or `assets/site.css` and reload. There is no JavaScript shipped to visitors, database, account system, external font, analytics integration, or application engine.
+Open `http://localhost:8000` in your own browser. Edit HTML or `assets/site.css` and reload. The only visitor JavaScript is the supplied Cloudflare Web Analytics beacon. There is no database, account system, external font, or application engine in this website.
 
 ## Structure
 
@@ -109,3 +109,13 @@ The homepage now explains the ACA-focused audience and shows a 2026 threshold co
 `docs/capital-gains-homepage-reference-2026.json` is the current limited source-value extract, not a new financial model. `scripts/check_reference_example.py` checks sixteen displayed scenario amounts and the cost difference against frozen expectations. The earlier withdrawal-case extract is retained unchanged as historical evidence. Read `docs/capital-gains-example-evidence.md` for the current scenario sources and scope; `docs/positioning-evidence.md` records the earlier positioning and founder review. Reviewed screenshots are in `docs/screenshots/`; none are fabricated application screenshots. These developer review files are excluded from the existing public build by its allowlisted copies.
 
 Supported planning year remains **2026**. No 2027 support or release date is promised. Noindex, navigation, deployment configuration, and Privacy/Disclaimer/Contact pages remain unchanged. Application validation reports were read but their financial suites were not rerun; no app repository or engine changes were made.
+
+## Public website analytics
+
+Cloudflare Web Analytics is manually installed once immediately before `</body>` on all ten public HTML pages, including the custom 404. The public site identifier is `2c066b4f0f454d73b66d63f1630e8c43`; it is not a credential. Automatic injection is managed separately in Cloudflare and must remain disabled to avoid duplicates. No custom events or financial inputs, plan data, form contents, or personal identifiers are attached by website code. The separate Income Planner repository and its CSP/storage/privacy controls are not modified.
+
+**Privacy disclosure required:** the provisional Privacy page still says the website has no analytics scripts. Its disclosure must be reviewed and updated to describe Cloudflare Web Analytics and that visitor and performance information may be processed by Cloudflare. This installation intentionally leaves page content unchanged. Do not invent retention periods or legal assurances.
+
+No repository CSP or CSP meta tags were found, and the development site's observed response had no CSP header; no CSP changes were needed. The environment proxy blocked inspection of the production domain's response headers. Check any Cloudflare-managed CSP on the public domain after deployment: it must permit the module from `https://static.cloudflareinsights.com` and the beacon's request destinations (including `https://cloudflareinsights.com`). Scope any needed adjustment to this website only; do not change the planner CSP.
+
+Live collection remains unverified until deployment. On production, confirm one beacon script per page, successful module loading and beacon requests without CSP errors, and traffic appearing in the correct Web Analytics property. Check the custom 404 as well. Local browser tests validate layout/navigation with the external module intercepted; they do not establish live collection. Noindex and existing Cloudflare Pages configuration remain unchanged.
