@@ -38,6 +38,13 @@ const paths = ['/', '/planning-tools/', '/planner/', '/learn/', '/about/',
           return errors;
         });
         if (issues.length) throw Error(`${path}: ${issues.join(', ')}`);
+        const launches = page.getByRole('link', { name: 'Launch Income Planner', exact: true });
+        if (await launches.count() < 1) throw Error(`${path}: missing launch link`);
+        for (const link of await launches.all()) {
+          if (await link.getAttribute('href') !== 'https://app.gapyearslab.com' ||
+              await link.getAttribute('target')) throw Error(`${path}: incorrect launch destination or tab`);
+        }
+        if (await page.locator('iframe').count()) throw Error(`${path}: unexpected embedded app`);
         checks++;
       }
       await page.goto(origin + '/');
@@ -50,8 +57,15 @@ const paths = ['/', '/planning-tools/', '/planner/', '/learn/', '/about/',
       if (!(await page.locator('#main').evaluate(el => el === document.activeElement))) {
         throw Error('Skip link does not move focus to main');
       }
-      await page.getByRole('link', { name: 'Preview Planner', exact: true }).click();
-      if (new URL(page.url()).pathname !== '/planner/') throw Error('Preview CTA destination');
+      // Intercept the external destination: verify website navigation without exercising app calculations.
+      await page.route('https://app.gapyearslab.com/**', route => route.fulfill({
+        status: 200, contentType: 'text/html', body: '<title>Planner navigation test</title>',
+      }));
+      const launch = page.getByRole('navigation', { name: 'Main navigation' })
+        .getByRole('link', { name: 'Launch Income Planner', exact: true });
+      if (await launch.getAttribute('target')) throw Error('Launch must use the same tab');
+      await launch.click();
+      if (page.url() !== 'https://app.gapyearslab.com/') throw Error('Launch destination');
       await page.goto(origin + '/');
       await page.getByRole('link', { name: 'How It Works' }).click();
       if (new URL(page.url()).hash !== '#how-it-works') throw Error('How It Works destination');
