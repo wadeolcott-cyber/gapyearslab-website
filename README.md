@@ -24,6 +24,10 @@ Open `http://localhost:8000` in your own browser. Edit HTML or `assets/site.css`
 
 Pages are standalone semantic HTML with shared CSS. When editing the navigation or footer, update all HTML pages together. Keep page titles, descriptions, canonical URLs, and sitemap entries in sync. The annual preview uses semantic definition lists and explanatory text; figures must continue to be labeled illustrative and must not be presented as application outputs.
 
+## Branding assets
+
+`assets/branding/` contains the supplied assets, extracted unchanged from the uploaded `gapyearslab-brand-assets.zip`. All pages use `logo-full.png` in the header and footer with accessible image text, intrinsic dimensions, and responsive CSS (`height: auto`). Browser icons include the ICO and 16/32/48px PNGs; `icon-180.png` is the Apple touch icon. Navy and teal site colors remain unchanged. The old monogram markup and SVG favicon have been removed.
+
 ## Validation
 
 ```sh
