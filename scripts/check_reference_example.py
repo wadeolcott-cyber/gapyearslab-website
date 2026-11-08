@@ -48,6 +48,6 @@ assert comparison.values['combinedCostIncrease'] == ['≈ '+dollars(data['cases'
 example = text.split('<section class="planner-window reference-demo"', 1)[1].split('<section class="section container">', 1)[0]
 assert 'one cent' not in example.lower() and 'one-cent' not in example.lower()
 assert '$128,600.01' not in example and '$88,600.01' not in example
-assert 'reviewed draft annual Form 8962 method' in example
+assert 'reviewed draft 2026 annual Form 8962 method' in example
 assert 'continuous calculations' in example
 print('PASS: 14 scenario amounts and whole-dollar highlight match revised PR #47 filing comparator; planning/draft distinction retained.')
