@@ -1,0 +1,34 @@
+{
+  "retrieved_at_utc": "2026-11-08T02:53:31.352138+00:00",
+  "sources": [
+    {
+      "url": "https://www.irs.gov/affordable-care-act/individuals-and-families/questions-and-answers-on-the-premium-tax-credit",
+      "http_status": 200,
+      "sha256": "5565e43cad229db1f240afbc41ad876570c991f9f633a7e502a4e3cbfd8e4c59",
+      "finding": "IRS FAQ Q30-31: no repayment cap after 2025; repay the full amount by which APTC exceeds allowed PTC."
+    },
+    {
+      "url": "https://www.irs.gov/instructions/i8962",
+      "http_status": 200,
+      "sha256": "070b370ea850988bb678234205d65de094dd32aee30bf72ca287225aa14063be",
+      "finding": "Current HTML instructions identify tax year 2025, not final 2026 instructions."
+    },
+    {
+      "url": "https://www.irs.gov/pub/irs-dft/i8962--dft.pdf",
+      "http_status": 200,
+      "sha256": "06eb732540186302b2146e0ac61d86e39e4c9d28dc8b05969043e940797459fe",
+      "finding": "2026 instructions dated October 20, 2026, DRAFT\u2014NOT FOR FILING; What\u2019s New confirms full excess-APTC repayment after 2025."
+    },
+    {
+      "url": "https://aspe.hhs.gov/sites/default/files/documents/ca4d59081203b81022bdb86b64ae36cc/Historical%20Poverty%20Guidelines%20Through%202026.xlsx",
+      "http_status": 200,
+      "sha256": "0c6b874339533197d73d202cecd7d4716908f260f851dde2107bb4ddf27efa74",
+      "finding": "48 Contiguous States--Nonfarm sheet: B6=2025 and F6=32150; unchanged four-person poverty guideline."
+    }
+  ],
+  "final_year_probe": {
+    "url": "https://www.irs.gov/pub/irs-prior/i8962--2026.pdf",
+    "http_status": 404,
+    "limitation": "These checked endpoints do not establish that no other IRS endpoint contains newer guidance."
+  }
+}
