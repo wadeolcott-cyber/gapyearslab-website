@@ -1,3 +1,7 @@
-# Pre-launch safeguard: keep all pages out of search until launch review is complete.
-/*
+# Production public pages use normal indexing defaults.
+# Exclude the development hostname and branch/version previews only.
+https://gapyearslab-website.pages.dev/*
+  X-Robots-Tag: noindex, follow
+
+https://:preview.gapyearslab-website.pages.dev/*
   X-Robots-Tag: noindex, follow
