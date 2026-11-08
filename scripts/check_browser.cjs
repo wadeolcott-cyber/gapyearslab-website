@@ -42,7 +42,8 @@ const paths = ['/', '/planning-tools/', '/planner/', '/learn/', '/about/',
         const launches = page.getByRole('link', { name: 'Launch Income Planner', exact: true });
         if (await launches.count() < 1) throw Error(`${path}: missing launch link`);
         for (const link of await launches.all()) {
-          if (await link.getAttribute('href') !== 'https://app.gapyearslab.com' ||
+          const destination = new URL(await link.getAttribute('href'));
+          if (destination.href !== 'https://app.gapyearslab.com/' ||
               await link.getAttribute('target')) throw Error(`${path}: incorrect launch destination or tab`);
         }
         if (await page.locator('iframe').count()) throw Error(`${path}: unexpected embedded app`);

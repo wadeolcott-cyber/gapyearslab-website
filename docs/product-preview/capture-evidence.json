@@ -1,0 +1,42 @@
+{
+  "captured_from": "https://app.gapyearslab.com/",
+  "capture_method": "Playwright Chromium, fresh ephemeral browser context; form inputs entered through live UI; Overview financial-outlook view; browser scroll plus screenshot clip, no DOM/content edits or number replacement",
+  "recorded_at_utc": "2026-11-08T03:05:25.897807+00:00",
+  "viewport": {
+    "width": 1440,
+    "height": 1100
+  },
+  "capture_region": {
+    "x": 0,
+    "y": 0,
+    "width": 1440,
+    "height": 715
+  },
+  "synthetic_inputs": {
+    "year": 2026,
+    "filing_status": "Married filing jointly",
+    "aca_household_size": 4,
+    "region": "Contiguous states/DC",
+    "nonqualified_dividends": 27000,
+    "qualified_dividends": 13000,
+    "long_term_gains": 88600,
+    "selected_plan_monthly_premium": 2500,
+    "benchmark_silver_monthly_premium": 3000,
+    "advance_credit_monthly": 0,
+    "coverage": "January\u2013December; Marketplace enrollment/lawful presence and applicable eligibility assumed; other qualifying coverage not selected",
+    "other_income_and_adjustments": "Unused fields left blank; current UI treats unused categories as zero",
+    "reconciliation_confirmation": "Full-year records/no special allocation assumption checked"
+  },
+  "observed_outputs": {
+    "aca_income": "$128,600.00",
+    "federal_tax_before_credits": "$0.00",
+    "estimated_annual_insurance_cost": "$6,808.56",
+    "estimated_annual_subsidy": "$23,191.44"
+  },
+  "plan_state": "Baseline and Modified match; no proposed decisions; illustrative/unreviewed inputs label preserved",
+  "optimization": "Pillow WebP quality 92, method 6; no resizing, compositing, or financial-output editing",
+  "file": "assets/product/income-planner-public-beta.webp",
+  "bytes": 66364,
+  "sha256": "669809987e75f39f77af9fce3f6332d8a6c6f362f47c856562a8beef752f4762",
+  "deployed_build_identity": "Not independently established; capture reflects observed live interface, not a claimed exact source commit"
+}
