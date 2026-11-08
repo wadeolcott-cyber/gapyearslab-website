@@ -1,9 +1,22 @@
 const {chromium}=require('playwright');
-(async()=>{const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox'],proxy:{server:process.env.HTTPS_PROXY}});try{const p=await b.newPage({viewport:{width:1440,height:1100},deviceScaleFactor:1});await p.goto('https://app.gapyearslab.com/',{waitUntil:'networkidle'});await p.getByRole('button',{name:'Skip Introduction',exact:true}).click();await p.getByLabel('Federal filing status').selectOption('joint');await p.getByLabel('ACA tax family size',{exact:true}).fill('4');await p.getByLabel('Poverty guideline region').selectOption('contiguous');for(const [name,value] of [['Nonqualified dividends','27000'],['Qualified dividends','13000'],['Long-term capital gains','88600'],['Full monthly plan premium before subsidies','2500'],['Benchmark Silver Plan premium','3000'],['Monthly advance subsidy already received','0']])await p.getByLabel(name,{exact:true}).fill(value);
+(async()=>{const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox'],proxy:{server:process.env.HTTPS_PROXY}});try{const p=await b.newPage({viewport:{width:1728,height:1100},deviceScaleFactor:1});await p.goto('https://app.gapyearslab.com/',{waitUntil:'networkidle'});await p.getByRole('button',{name:'Skip Introduction',exact:true}).click();await p.getByLabel('Federal filing status').selectOption('joint');await p.getByLabel('ACA tax family size',{exact:true}).fill('2');await p.getByLabel('Poverty guideline region').selectOption('contiguous');for(const [name,value] of [['Retirement withdrawals','75000'],['Full monthly plan premium before subsidies','1400'],['Benchmark Silver Plan premium','1600'],['Monthly advance subsidy already received','0']])await p.getByLabel(name,{exact:true}).fill(value);
 await p.getByLabel('ACA coverage assumption',{exact:true}).selectOption('yes');
 await p.getByLabel('Enrolled in qualifying Marketplace coverage',{exact:true}).check();
 await p.getByLabel('Lawful presence and applicable eligibility requirements met (assumption)',{exact:true}).check();
 await p.getByLabel('My records cover the full year and need no special coverage eligibility or shared-policy allocation rules',{exact:true}).check();
 
-await p.getByRole('button',{name:/Overview/}).first().click();await p.waitForTimeout(1000);const outlook=p.getByRole('heading',{name:'Your financial outlook',exact:true}); await outlook.evaluate(el=>window.scrollTo(0,el.getBoundingClientRect().top+window.scrollY-32));const text=await p.locator('body').innerText(); for(const value of ['$128,600.00','$0.00','$6,808.56','$23,191.44'])if(!text.includes(value))throw Error('Missing expected synthetic output '+value); await p.mouse.move(1430,1090);await p.screenshot({path:'/tmp/income-planner-live-overview.png',clip:{x:0,y:0,width:1440,height:715}});await p.locator('body').evaluate(el=>{return el.scrollHeight;});
+await p.getByLabel("I've reviewed my Baseline income, household and insurance information",{exact:true}).check();
+await p.getByRole('button',{name:/Decision Simulator/}).first().click();
+await p.getByLabel('Additional taxable Roth conversion',{exact:true}).fill('10000');
+await p.getByLabel('Description (optional)',{exact:true}).fill('Hypothetical $10,000 Roth conversion');
+await p.getByLabel("I've checked that my monthly insurance premiums and coverage eligibility information are correct for this estimate",{exact:true}).check();
+await p.waitForFunction(()=>document.body.innerText.includes('$12,930.00'));
+require('fs').writeFileSync('/tmp/roth-simulator-text.txt',await p.locator('body').innerText());
+await p.getByRole('button',{name:'Add to Modified Plan',exact:true}).click();
+await p.getByRole('button',{name:/Overview/}).first().click();
+await p.getByRole('heading',{name:'Your financial outlook',exact:true}).waitFor();
+await p.waitForTimeout(700);
+const text=await p.locator('body').innerText();for(const value of ['$75,000.00','$85,000.00','$4,640.00','$5,840.00','$5,070.00','$16,800.00','$9,710.00','$22,640.00','$11,730.00','1 hypothetical decision'])if(!text.includes(value))throw Error('Unexpected live Overview: '+value);
+require('fs').writeFileSync('/tmp/roth-overview-text.txt',text);
+const outlook=p.getByRole('heading',{name:'Your financial outlook',exact:true});await outlook.evaluate(el=>window.scrollTo(0,el.getBoundingClientRect().top+window.scrollY-32));await p.mouse.move(1720,1090);await p.screenshot({path:'/tmp/roth-live-overview.png',clip:{x:0,y:0,width:1728,height:858}});
 }finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -1,15 +1,30 @@
-# Genuine live product preview
+# Genuine live Roth-conversion comparison
 
-`assets/product/income-planner-public-beta.webp` is a real Chromium capture of the live Income Planner, not an illustration, AI image, composite, or recreated interface. `capture-evidence.json` records source URL, synthetic input assumptions, observed outputs, clip, compression settings and hash. The screenshot retains the actual “Illustrative or unreviewed inputs” label. No personal/account data or account connections were used.
+`assets/product/income-planner-public-beta.webp` shows the actual live Overview after a genuine hypothetical decision was added through Decision Simulator. The previous matching-plan screenshot has been replaced. `capture-evidence.json` records synthetic inputs, UI sequence, observed outputs, capture dimensions, compression and file hash.
 
-The preferred hypothetical 2026 joint/four-person contiguous-state example was entered through the live UI. Nonqualified dividends $27,000, qualified dividends $13,000 and long-term gains $88,600 yield $128,600 ACA income. Monthly selected/benchmark premiums are $2,500/$3,000; zero monthly advances and full-year eligibility/coverage assumptions are explicit. Baseline and Modified intentionally match; no decision has been applied. The caption does not pretend this is a comparison of different plans. Unused fields remain blank under the current UI's unused-category handling.
+## Reproduce the synthetic workflow
 
-Observed continuous estimates are $0 federal tax before credits, $23,191.44 final estimated subsidy and $6,808.56 annual insurance cost. They are not substituted for the distinct approximate whole-dollar filing-method comparison on the homepage. The site explains this distinction and links Methodology.
+Use the existing external Playwright/Chromium setup to run `capture-live-overview.cjs` through the inherited HTTPS proxy. It starts a fresh disposable context and writes only local review artifacts in `/tmp`; it does not change application source or its persistence implementation.
 
-`capture-live-overview.cjs` documents the UI capture workflow. It requires the existing external Playwright/Chromium test setup and inherited HTTPS proxy; it is not shipped with the site. It writes a PNG to `/tmp`, scrolls the browser to the actual financial-outlook panel and captures a region retaining the entire panel and sidebar context. No app source, DOM text/styles, engine, or numerical output is modified. Compression used WebP quality 92/method 6 without resizing, overlays or number edits. No dependency was added to the website.
+1. Skip the introduction and enter a 2026 joint-filing, two-person contiguous/DC household.
+2. Enter $75,000 in taxable retirement withdrawals. Leave other income/adjustment categories unused; the current UI treats them as zero. Use the base standard deduction.
+3. Enter hypothetical monthly eligible-member selected-plan/benchmark Silver premiums of $1,400/$1,600, zero monthly advances and January–December coverage. Record the Marketplace/lawful-presence/eligibility assumptions with no other qualifying coverage and confirm full-year records. These are not real quotes or a taxpayer eligibility determination.
+4. Review the synthetic Baseline inputs using the app's checkbox.
+5. Open Decision Simulator, enter an **additional $10,000 taxable Roth conversion** named “Hypothetical $10,000 Roth conversion,” confirm insurance assumptions, and wait for the actual estimated $12,930 combined-cost increase. The raw simulator text is recorded locally before proceeding.
+6. Click **Add to Modified Plan**, then open Overview. Verify one hypothetical decision, Baseline $75,000 and Modified $85,000, and the actual output differences before capture. No baseline conversion or manual Modified override is entered.
 
-Capture is from the observed live service; the deployed build commit was not independently established. Future UI changes may require reviewing and recapturing rather than manufacturing an old view. Synthetic autosave occurred only in a disposable browser context; persistence implementation was untouched.
+| Observed measure | Baseline | Modified |
+| --- | ---: | ---: |
+| ACA income | $75,000.00 | $85,000.00 |
+| Federal tax before credits | $4,640.00 | $5,840.00 |
+| Estimated ACA subsidy | $11,730.00 | $0.00 |
+| Estimated annual insurance cost | $5,070.00 | $16,800.00 |
+| Combined tax + insurance cost | $9,710.00 | $22,640.00 |
 
-Before/after full-page review screenshots are `../screenshots/home-refinement-{before,after}-{390,1440}.png`. At 390px the page height decreased from 11,035 to 9,655px; at 1440px from 6,524 to 6,144px. Source text decreased from 1,318 to 1,236 words while adding the real preview. Planned topics remain on Learn; the homepage retains the published article. The validated comparison is unchanged except for CTA wording/URL normalization.
+The app displays a **+$12,930.00 combined-cost change** and +$10,000.00 of ACA income. Under this assumed household configuration the conversion crosses the modeled subsidy threshold. This does not make a conversion universally good/bad or predict another household's outcome. The conversion is a proposed noncash asset transfer, not completed income or a lifetime strategy. These are observed continuous planning estimates, not certified tax-return results.
 
-Validation: build/link/metadata/sitemap checks; existing financial reference checks; 50 responsive/navigation checks; separate 390/768/1440 image-loading/aspect-ratio/alt/lazy-loading and native full-size keyboard navigation checks; visual review. Homepage title, metadata, analytics, privacy statement and all unrelated pages/configuration are unchanged. No new JS or image-viewer dependency is shipped.
+## Image handling and scope
+
+The real browser viewport is 1728×1100; a 1728×858 region retains both complete financial cards, the actual delta explanation, and sidebar context. It is resized proportionally to 1440×715 (the original image ratio) with Lanczos and encoded as WebP quality 94/method 6. No numbers, DOM text/styles, application UI, or pixels are fabricated or composited. The applied conversion is documented in the caption; no personal financial information is used. The screenshot's deployed source commit was not independently established.
+
+The original responsive dimensions, native full-size link, lazy loading, and continuous-estimate explanation remain. Only the image, its alt/caption, and its existing provenance files change; unrelated homepage layout and the independently validated cliff example are preserved. Prior homepage before/after screenshots are historical review artifacts, not the new preview.
