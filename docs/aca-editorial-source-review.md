@@ -1,17 +1,16 @@
-# ACA editorial/repayment draft: publication verification required
+# ACA editorial/repayment: official source verification
 
-**Do not publish this draft until current official sources are checked.**
+**Official-source verification completed on retry.** The earlier network blocker is resolved; this note supersedes its pending-verification status.
 
-The existing merged application report `docs/validation/2026-aca-cliff-rounding-review.md` (PR #47) was re-read for this task. It supports the unchanged $1 scenario and documented, at its review, IRS PTC FAQ Q30–31 as stating that the excess-APTC repayment cap does not apply after 2025. It recorded draft 2026 Form 8962 instructions and did not establish final 2026 filing accuracy.
+The unchanged financial comparison remains grounded in the merged application report `docs/validation/2026-aca-cliff-rounding-review.md` (PR #47). Fresh official-source checks now independently support the proposed repayment explanation:
 
-Fresh requests in this task to the IRS PTC FAQ and current Form 8962 instructions were denied by the environment proxy (CONNECT 403). No current live IRS/HHS content or newer final 2026 instructions were independently verified. The proposed repayment copy is therefore held in a draft PR, not certified ready to publish. No validated amounts were changed and no application calculation defect is implied.
+- IRS PTC FAQ Q30–31 returned HTTP 200. Q31 states: “There is no repayment cap for tax years after 2025” and “you must repay the full amount by which your advance credit payments exceed your Premium Tax Credit.” Q30 distinguishes allowed credit, advance payments, refund/balance adjustments and pre-2026 caps. This supports the qualified hypothetical $20,000 advance/$0 allowed credit illustration, not a penalty or a fixed universal liability.
+- The current Form 8962 HTML instructions returned HTTP 200 and identify **2025**. Their repayment-limit tables must not be applied to 2026.
+- The draft instruction PDF returned HTTP 200, identifies **2026**, is dated **October 20, 2026**, and remains explicitly **DRAFT—NOT FOR FILING**. Its “What’s New” section confirms removal of prior excess-APTC repayment limitations after 2025. The checked final-2026 PDF endpoint returned 404. No claim is made that all possible IRS endpoints were exhaustively searched or that final 2026 instructions were verified.
+- The official HHS historical workbook returned HTTP 200. In “48 Contiguous States--Nonfarm,” B6 is 2025 and F6 is 32150, confirming the unchanged four-person guideline underlying the $128,600 threshold.
+- All six IRS/HealthCare.gov URLs linked from the article returned HTTP 200, including the current instructions, draft instructions, premium tax credit FAQ, 2026 contribution bulletin, 2026 deduction/gain threshold PDF, and FPL glossary.
 
-Pending official verification:
-- https://www.irs.gov/affordable-care-act/individuals-and-families/questions-and-answers-on-the-premium-tax-credit — confirm current 2026 full excess-APTC repayment rule and eligibility qualifications.
-- https://www.irs.gov/instructions/i8962 — identify the served tax year, draft/final status, reconciliation guidance, and whether newer final 2026 instructions affect the current explanation.
-- Verify linked IRS/HHS source revisions as appropriate. Do not use 2025 repayment-limit tables for 2026 or silently substitute new financial outputs.
-
-The environment draft preserves existing network entries and adds www.irs.gov, aspe.hhs.gov, and www.healthcare.gov for owner review/save/publication. That save does not apply access or publish website code. After access changes, retry official requests and record source status before marking the PR ready.
+`aca-editorial-official-source-check.json` records retrieved artifact hashes, URLs, observed statuses and a UTC retrieval timestamp. Mutable endpoints may change later. The current source checks do not establish final-return accuracy or a Marketplace determination. No validated scenario values were changed, and no new calculation defect was identified.
 
 Editorial scope: remove public development-history/PR language; preserve all financial values; move rounding, detailed assumptions, exclusions, and draft-method qualifications to native details/summary; keep official sources visible. Main article assumptions and hypothetical context remain visible. The repayment illustration uses hypothetical $20,000 advances and $0 allowable credit, not an asserted liability for everyone. It is reconciliation, not a penalty, and must not be added again to the economic loss of PTC. The main scenario has zero advances.
 
