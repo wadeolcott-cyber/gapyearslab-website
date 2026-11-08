@@ -38,7 +38,7 @@ python3 scripts/check_reference_example.py
 python3 scripts/check_reference_example.py dist
 ```
 
-The link checker validates local targets, fragments, one primary heading per page, canonical/Open Graph URLs, sitemap destinations, robots.txt, and pre-launch noindex metadata and Cloudflare header configuration. Build output contains public files only and is ignored by Git. It requires Bash and standard `cp`; no package installation is needed.
+The link checker validates local targets, fragments, one primary heading per page, canonical/Open Graph URLs, sitemap destinations, robots.txt, and public-page indexability, unique titles/descriptions, sitemap coverage, and host-scoped Cloudflare header configuration. Build output contains public files only and is ignored by Git. It requires Bash and standard `cp`; no package installation is needed.
 
 Optional browser validation requires Node.js, Playwright, and Chromium. Keep those test dependencies outside this repository:
 
@@ -61,19 +61,30 @@ Set `CHROMIUM_PATH` to use an existing Chromium executable, and `SITE_URL` to ch
 
 The current development deployment is https://gapyearslab-website.pages.dev/. This refinement does not deploy, change DNS, or alter the Cloudflare build command or output directory.
 
-### Pre-launch indexing safeguards
+### Production indexing and preview protection
 
-Every HTML page currently carries `noindex, follow`, and `_headers` applies `X-Robots-Tag: noindex, follow` to every path in Cloudflare Pages. The build copies `_headers` to `dist`. This deliberately keeps both the development deployment and any custom-domain deployment unindexed until launch review is complete. Local Python serving does not interpret Cloudflare `_headers`.
+The nine public informational pages use normal search engine indexing defaults and production canonical/Open Graph URLs under **https://gapyearslab.com/**. The custom 404 remains noindex and is excluded from the sitemap. `robots.txt` permits public crawling and references `https://gapyearslab.com/sitemap.xml`.
 
-Canonical and Open Graph URLs remain on **https://gapyearslab.com/**. `robots.txt` allows crawling so search engines can read noindex directives, and references `https://gapyearslab.com/sitemap.xml`. It is not a privacy or access-control mechanism. The sitemap includes only the homepage, Planning Tools, and About; unfinished policy, contact, learning, methodology, and planner overview pages are omitted. Do not submit the sitemap until launch approval and removal of noindex on reviewed public pages.
+`_headers` applies noindex only to the development hostname and its branch/version preview subdomains. No blanket production noindex remains. Local Python serving does not interpret these Cloudflare header rules; verify them after deployment. Cloudflare-managed header or crawler rules may also need owner review. The separate application indexing strategy is unchanged.
 
-At launch, review content and domain routing first, then deliberately revise the blanket `_headers` rule and per-page robots metadata for approved production pages. Keep unfinished pages noindex and keep **all `pages.dev` hosts** noindex using Cloudflare host-specific rules (or verified production redirects), including branch previews. Test actual response headers after deployment; do not simply remove the blanket rule while leaving the development host indexable.
+The static sitemap lists all nine canonical public pages. When adding a page, add its production canonical URL to the sitemap; do not add 404s, app URLs, redirects, preview hosts, or private resources. The validator compares the complete public-page set with sitemap entries and rejects duplicates, accidental noindex, and missing/noncanonical targets. No speculative lastmod, priority, or changefreq values are generated.
+
+### Post-deployment indexing checklist
+
+- Verify HTTPS and expected content/status codes for every sitemap URL.
+- Fetch `https://gapyearslab.com/robots.txt` and `https://gapyearslab.com/sitemap.xml`; confirm the sitemap is valid XML and the robots reference is correct.
+- Inspect production HTML and response headers for unintended noindex/none directives, including Cloudflare-managed `X-Robots-Tag` rules. Verify canonical URLs use the production domain.
+- Confirm pages.dev development/preview responses retain noindex and production security headers remain intact. Check a missing URL returns 404.
+- In Google Search Console, verify domain ownership if needed, submit `https://gapyearslab.com/sitemap.xml`, request indexing for the homepage/primary planning pages, and monitor status/errors.
+- Consider submitting the same sitemap in Bing Webmaster Tools.
+
+These are owner follow-ups, not claims of deployment, submission, or indexing. Search engines decide when and whether to index pages.
 
 ## Planner integration
 
 “Launch Income Planner” links open **https://app.gapyearslab.com** in the same tab. The homepage and Planning Tools page also link to `/planner/`, the product overview and feature explanation. The illustrative annual example remains explicitly separate from genuine application results.
 
-The website and planner remain separate GitHub repositories and Cloudflare Pages projects. There is no iframe, shared calculation engine, or app code in this repository. The website’s pre-launch indexing safeguards remain unchanged; release them only after the existing content and hosting review.
+The website and planner remain separate GitHub repositories and Cloudflare Pages projects. There is no iframe, shared calculation engine, or app code in this repository. The public website indexing configuration is separate from the application’s indexing strategy.
 
 ## Product scope
 
@@ -82,7 +93,7 @@ GapYears Lab is the broader early-retirement income-planning platform. Its first
 ## Content remaining before public launch
 
 - **Founder story:** review the completed draft based on approved themes, including the wording about more than 20 years of experience and leadership at Visa. No name, photo, degrees, or professional tax/investment credentials are included.
-- **Indexing and hosting:** review the safeguards above and verify actual Cloudflare response headers, custom-domain routing, and preview-host protection before enabling indexing.
+- **Indexing and hosting:** complete the post-deployment checklist above, including production headers, canonical routing, and preview-host protection.
 - **Privacy:** review provider/infrastructure and feedback settings, contact availability, and any applicable visitor rights. Set the notice’s actual publication date when it goes live; this PR does not claim publication or verified retention periods.
 - **Disclaimer:** review the introductory educational disclaimer for the intended launch.
 - **Contact:** replace the coming-soon notice with a monitored contact channel. No invented email address is provided.
