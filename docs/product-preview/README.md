@@ -1,0 +1,15 @@
+# Genuine live product preview
+
+`assets/product/income-planner-public-beta.webp` is a real Chromium capture of the live Income Planner, not an illustration, AI image, composite, or recreated interface. `capture-evidence.json` records source URL, synthetic input assumptions, observed outputs, clip, compression settings and hash. The screenshot retains the actual “Illustrative or unreviewed inputs” label. No personal/account data or account connections were used.
+
+The preferred hypothetical 2026 joint/four-person contiguous-state example was entered through the live UI. Nonqualified dividends $27,000, qualified dividends $13,000 and long-term gains $88,600 yield $128,600 ACA income. Monthly selected/benchmark premiums are $2,500/$3,000; zero monthly advances and full-year eligibility/coverage assumptions are explicit. Baseline and Modified intentionally match; no decision has been applied. The caption does not pretend this is a comparison of different plans. Unused fields remain blank under the current UI's unused-category handling.
+
+Observed continuous estimates are $0 federal tax before credits, $23,191.44 final estimated subsidy and $6,808.56 annual insurance cost. They are not substituted for the distinct approximate whole-dollar filing-method comparison on the homepage. The site explains this distinction and links Methodology.
+
+`capture-live-overview.cjs` documents the UI capture workflow. It requires the existing external Playwright/Chromium test setup and inherited HTTPS proxy; it is not shipped with the site. It writes a PNG to `/tmp`, scrolls the browser to the actual financial-outlook panel and captures a region retaining the entire panel and sidebar context. No app source, DOM text/styles, engine, or numerical output is modified. Compression used WebP quality 92/method 6 without resizing, overlays or number edits. No dependency was added to the website.
+
+Capture is from the observed live service; the deployed build commit was not independently established. Future UI changes may require reviewing and recapturing rather than manufacturing an old view. Synthetic autosave occurred only in a disposable browser context; persistence implementation was untouched.
+
+Before/after full-page review screenshots are `../screenshots/home-refinement-{before,after}-{390,1440}.png`. At 390px the page height decreased from 11,035 to 9,655px; at 1440px from 6,524 to 6,144px. Source text decreased from 1,318 to 1,236 words while adding the real preview. Planned topics remain on Learn; the homepage retains the published article. The validated comparison is unchanged except for CTA wording/URL normalization.
+
+Validation: build/link/metadata/sitemap checks; existing financial reference checks; 50 responsive/navigation checks; separate 390/768/1440 image-loading/aspect-ratio/alt/lazy-loading and native full-size keyboard navigation checks; visual review. Homepage title, metadata, analytics, privacy statement and all unrelated pages/configuration are unchanged. No new JS or image-viewer dependency is shipped.
