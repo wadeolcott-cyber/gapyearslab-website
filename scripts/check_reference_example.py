@@ -3,7 +3,7 @@
 Only format expected values; do not run or recreate financial calculations.
 """
 import json
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import Decimal
 from html.parser import HTMLParser
 from pathlib import Path
 import sys
@@ -32,19 +32,22 @@ class Comparison(HTMLParser):
             self.measure = self.tag = None
 
 def dollars(value):
-    return f"${Decimal(value).quantize(Decimal('.01'), rounding=ROUND_HALF_UP):,.2f}"
+    return f"${Decimal(value):,.0f}"
 
-data = json.loads((SOURCE/'docs/capital-gains-homepage-reference-2026.json').read_text(), parse_float=Decimal)
+data = json.loads((SOURCE/'docs/article-aca-rounding-reference-2026.json').read_text())
 text = (ROOT/'index.html').read_text()
 comparison = Comparison(text)
-assert [c['id'] for c in data['cases']] == ['CG-CLIFF-A', 'CG-CLIFF-B']
+assert [c['id'] for c in data['cases']] == ['128600.00', '128601.00']
 for measure in ['nonQualifiedDividends', 'qualifiedDividends', 'longTermGains',
-                'magi', 'federalTax', 'ptc', 'netPremium', 'combinedCost']:
-    source = 'income' if measure in ['nonQualifiedDividends', 'qualifiedDividends', 'longTermGains'] else 'expected'
-    expected = [dollars(c['input']['income'][measure] if source == 'income' else c['expected'][measure])
-                for c in data['cases']]
-    assert comparison.values[measure] == expected, (measure, comparison.values[measure], expected)
-assert comparison.values['combinedCostIncrease'] == [dollars(data['combinedCostIncrease'])]
-assert '$1,591' not in text
-assert 'income consists entirely of taxable retirement withdrawals' not in text.lower()
-print('PASS: 16 scenario amounts and the cost difference match the merged capital-gains reference to cents.')
+                'magi', 'federalTax', 'ptc', 'netPremium']:
+    source = 'income' if measure in ['nonQualifiedDividends', 'qualifiedDividends', 'longTermGains'] else 'filing'
+    expected = [dollars(c[source][measure]) for c in data['cases']]
+    actual = [v.removeprefix('Approximately ') for v in comparison.values[measure]]
+    assert actual == expected, (measure, actual, expected)
+assert comparison.values['combinedCostIncrease'] == ['≈ '+dollars(data['cases'][0]['filing']['ptc'])]
+example = text.split('<section class="planner-window reference-demo"', 1)[1].split('<section class="section container">', 1)[0]
+assert 'one cent' not in example.lower() and 'one-cent' not in example.lower()
+assert '$128,600.01' not in example and '$88,600.01' not in example
+assert 'reviewed draft annual Form 8962 method' in example
+assert 'continuous calculations' in example
+print('PASS: 14 scenario amounts and whole-dollar highlight match revised PR #47 filing comparator; planning/draft distinction retained.')
