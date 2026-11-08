@@ -1,0 +1,105 @@
+{
+  "source_repository": "wadeolcott-cyber/aca-income-optimizer",
+  "source_revision": "7d83650c78592087ce3f7c17f8f869706d1f7e03",
+  "source_report": "docs/validation/2026-aca-cliff-rounding-review.md",
+  "source_fixture": "tests/fixtures/financial-validation/aca-cliff-rounding-2026.json",
+  "note": "Limited transcription of the revised $1 pair. Draft annual-line filing comparator, not final-year certification. No financial calculations are performed by the website.",
+  "cases": [
+    {
+      "id": "128600.00",
+      "income": {
+        "nonQualifiedDividends": "27000",
+        "qualifiedDividends": "13000",
+        "longTermGains": "88600.00"
+      },
+      "reportedLines": {
+        "nonQualifiedDividends": "27000",
+        "qualifiedDividends": "13000",
+        "longTermGains": "88600",
+        "taxableInterest": "0"
+      },
+      "planning": {
+        "agi": "128600.00",
+        "magi": "128600.00",
+        "taxableIncome": "96400.00",
+        "ordinaryIncome": "0",
+        "preferentialIncome": "96400.00",
+        "federalTax": "0",
+        "fplPercent": "400.00",
+        "line5": 400,
+        "eligible": true,
+        "percentage": "0.0996",
+        "annualContribution": "12808.560000",
+        "monthlyContribution": "1067.380000",
+        "ptc": "23191.440000",
+        "monthlyPathPtc": "23191.440000",
+        "netPremium": "6808.560000"
+      },
+      "filing": {
+        "agi": "128600",
+        "magi": "128600",
+        "taxableIncome": "96400",
+        "ordinaryIncome": "0",
+        "preferentialIncome": "96400",
+        "federalTax": "0",
+        "fplPercent": "400",
+        "line5": 400,
+        "eligible": true,
+        "percentage": "0.0996",
+        "annualContribution": "12809",
+        "monthlyContribution": "1067",
+        "ptc": "23191",
+        "monthlyPathPtc": "23196",
+        "netPremium": "6809"
+      }
+    },
+    {
+      "id": "128601.00",
+      "income": {
+        "nonQualifiedDividends": "27000",
+        "qualifiedDividends": "13000",
+        "longTermGains": "88601.00"
+      },
+      "reportedLines": {
+        "nonQualifiedDividends": "27000",
+        "qualifiedDividends": "13000",
+        "longTermGains": "88601",
+        "taxableInterest": "0"
+      },
+      "planning": {
+        "agi": "128601.00",
+        "magi": "128601.00",
+        "taxableIncome": "96401.00",
+        "ordinaryIncome": "0",
+        "preferentialIncome": "96401.00",
+        "federalTax": "0",
+        "fplPercent": "400.0031104199066874027993779160186625194",
+        "line5": 401,
+        "eligible": false,
+        "percentage": null,
+        "annualContribution": null,
+        "monthlyContribution": null,
+        "ptc": "0",
+        "monthlyPathPtc": "0",
+        "netPremium": "30000"
+      },
+      "filing": {
+        "agi": "128601",
+        "magi": "128601",
+        "taxableIncome": "96401",
+        "ordinaryIncome": "0",
+        "preferentialIncome": "96401",
+        "federalTax": "0",
+        "fplPercent": "400.0031104199066874027993779160186625194",
+        "line5": 401,
+        "eligible": false,
+        "percentage": null,
+        "annualContribution": null,
+        "monthlyContribution": null,
+        "ptc": "0",
+        "monthlyPathPtc": "0",
+        "netPremium": "30000"
+      }
+    }
+  ]
+}

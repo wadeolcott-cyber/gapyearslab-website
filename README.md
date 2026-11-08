@@ -63,11 +63,11 @@ The current development deployment is https://gapyearslab-website.pages.dev/. Th
 
 ### Production indexing and preview protection
 
-The nine public informational pages use normal search engine indexing defaults and production canonical/Open Graph URLs under **https://gapyearslab.com/**. The custom 404 remains noindex and is excluded from the sitemap. `robots.txt` permits public crawling and references `https://gapyearslab.com/sitemap.xml`.
+The ten public informational pages use normal search engine indexing defaults and production canonical/Open Graph URLs under **https://gapyearslab.com/**. The custom 404 remains noindex and is excluded from the sitemap. `robots.txt` permits public crawling and references `https://gapyearslab.com/sitemap.xml`.
 
 `_headers` applies noindex only to the development hostname and its branch/version preview subdomains. No blanket production noindex remains. Local Python serving does not interpret these Cloudflare header rules; verify them after deployment. Cloudflare-managed header or crawler rules may also need owner review. The separate application indexing strategy is unchanged.
 
-The static sitemap lists all nine canonical public pages. When adding a page, add its production canonical URL to the sitemap; do not add 404s, app URLs, redirects, preview hosts, or private resources. The validator compares the complete public-page set with sitemap entries and rejects duplicates, accidental noindex, and missing/noncanonical targets. No speculative lastmod, priority, or changefreq values are generated.
+The static sitemap lists all ten canonical public pages. When adding a page, add its production canonical URL to the sitemap; do not add 404s, app URLs, redirects, preview hosts, or private resources. The validator compares the complete public-page set with sitemap entries and rejects duplicates, accidental noindex, and missing/noncanonical targets. No speculative lastmod, priority, or changefreq values are generated.
 
 ### Post-deployment indexing checklist
 
@@ -138,3 +138,9 @@ The homepage privacy statement links to `/privacy/`. The revised notice reflects
 No app accounts or brokerage connections are required by the reviewed application. Calculations and workers execute in the browser; autosave uses unencrypted origin-local storage when available. Exports are unencrypted, import is local, and clearing saved entries is not secure erasure. Shared profiles, extensions, compromised devices, files/backups and other tabs remain relevant risks. Hosting/website analytics metadata and voluntary external submissions are distinct from automatic financial uploads.
 
 **Publication follow-up:** this change prepares a PR, not a deployment. The Privacy page does not falsely claim November 6, 2026 as its publication date; replace the pending-publication line with the actual date when the notice goes live (use November 6 only if published that day). The Contact page still has no configured public channel and is a launch-readiness issue. Cloudflare infrastructure/log-retention and external feedback-form settings were not fully verified. No absolute security, encryption, anonymity, or legal-compliance assurances are made.
+
+## Educational articles
+
+The first article is `/learn/zero-percent-capital-gains-aca-subsidy-cliff/`. It reuses standalone HTML, shared navigation/footer/analytics, and responsive article styles; the existing recursive `learn` build copy includes it without build configuration changes. Add future articles to Learn, the canonical sitemap, and browser coverage. Keep planned topics distinct from published resources.
+
+Run `python3 scripts/check_article_reference.py` and `python3 scripts/check_article_reference.py dist` for the revised whole-dollar comparison. Source review and publication qualifications are in `docs/first-article-evidence.md`. Fresh live checks of official IRS/HealthCare.gov URLs were proxy-blocked in this environment; recheck them and the applicable final-year guidance before publication. No author/date is invented while publication is pending review.
