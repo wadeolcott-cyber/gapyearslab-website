@@ -1,42 +1,66 @@
 {
   "captured_from": "https://app.gapyearslab.com/",
-  "capture_method": "Playwright Chromium, fresh ephemeral browser context; form inputs entered through live UI; Overview financial-outlook view; browser scroll plus screenshot clip, no DOM/content edits or number replacement",
-  "recorded_at_utc": "2026-11-08T03:05:25.897807+00:00",
+  "recorded_at_utc": "2026-11-08T03:14:57.847819+00:00",
+  "capture_method": "Playwright Chromium; fresh ephemeral browser; baseline entered through Income Plan; incremental conversion entered/reviewed in Decision Simulator and Add to Modified Plan clicked; then Overview",
   "viewport": {
-    "width": 1440,
+    "width": 1728,
     "height": 1100
   },
   "capture_region": {
     "x": 0,
     "y": 0,
+    "width": 1728,
+    "height": 858
+  },
+  "asset_dimensions": {
     "width": 1440,
     "height": 715
   },
   "synthetic_inputs": {
-    "year": 2026,
+    "tax_and_coverage_year": 2026,
     "filing_status": "Married filing jointly",
-    "aca_household_size": 4,
+    "aca_household_size": 2,
     "region": "Contiguous states/DC",
-    "nonqualified_dividends": 27000,
-    "qualified_dividends": 13000,
-    "long_term_gains": 88600,
-    "selected_plan_monthly_premium": 2500,
-    "benchmark_silver_monthly_premium": 3000,
-    "advance_credit_monthly": 0,
-    "coverage": "January\u2013December; Marketplace enrollment/lawful presence and applicable eligibility assumed; other qualifying coverage not selected",
-    "other_income_and_adjustments": "Unused fields left blank; current UI treats unused categories as zero",
-    "reconciliation_confirmation": "Full-year records/no special allocation assumption checked"
+    "baseline_taxable_retirement_withdrawals": 75000,
+    "other_income": "Unused inputs left blank under current UI unused-category handling",
+    "deductions": "No itemization or extra adjustments; base standard deduction",
+    "selected_plan_monthly_premium": 1400,
+    "benchmark_silver_monthly_premium": 1600,
+    "premium_status": "Hypothetical eligible-member plan/SLCSP premiums, not real quotes",
+    "monthly_advance_credit": 0,
+    "coverage": "January\u2013December, Marketplace/lawful-presence/applicable eligibility assumptions checked, no other coverage eligibility",
+    "baseline_review": "Reviewed checkbox set in the synthetic UI; not independent verification",
+    "decision": {
+      "type": "Roth conversion",
+      "additional_amount": 10000,
+      "description": "Hypothetical $10,000 Roth conversion",
+      "entered_via": "Decision Simulator",
+      "coverage_review_confirmed": true,
+      "applied_via": "Add to Modified Plan"
+    }
   },
-  "observed_outputs": {
-    "aca_income": "$128,600.00",
-    "federal_tax_before_credits": "$0.00",
-    "estimated_annual_insurance_cost": "$6,808.56",
-    "estimated_annual_subsidy": "$23,191.44"
+  "actual_observed_outputs": {
+    "baseline": {
+      "aca_income": "$75,000.00",
+      "federal_tax_before_credits": "$4,640.00",
+      "estimated_aca_subsidy": "$11,730.00",
+      "estimated_annual_insurance_cost": "$5,070.00",
+      "combined_tax_and_insurance": "$9,710.00"
+    },
+    "modified": {
+      "aca_income": "$85,000.00",
+      "federal_tax_before_credits": "$5,840.00",
+      "estimated_aca_subsidy": "$0.00",
+      "estimated_annual_insurance_cost": "$16,800.00",
+      "combined_tax_and_insurance": "$22,640.00"
+    },
+    "combined_annual_cost_increase": "+$12,930.00",
+    "income_increase": "+$10,000.00",
+    "decision_state": "1 hypothetical decision in Modified Plan; Baseline unchanged; no manual replacement"
   },
-  "plan_state": "Baseline and Modified match; no proposed decisions; illustrative/unreviewed inputs label preserved",
-  "optimization": "Pillow WebP quality 92, method 6; no resizing, compositing, or financial-output editing",
+  "optimization": "Aspect-preserving resize of the raw 1728\u00d7858 PNG to 1440\u00d7715, WebP quality 94/method 6. No compositing, DOM output edits, overlays or number replacement.",
   "file": "assets/product/income-planner-public-beta.webp",
-  "bytes": 66364,
-  "sha256": "669809987e75f39f77af9fce3f6332d8a6c6f362f47c856562a8beef752f4762",
-  "deployed_build_identity": "Not independently established; capture reflects observed live interface, not a claimed exact source commit"
+  "bytes": 84258,
+  "sha256": "e85a538f6b847efe37a21287889dbf1f5b0849accec780ef8a1eeda366a9b961",
+  "deployed_build_identity": "Not independently established; actual observed live interface."
 }
