@@ -89,7 +89,7 @@ const paths = ['/', '/planning-tools/', '/planner/', '/learn/', '/about/',
       }
       await page.goto(origin + '/');
       await page.getByRole('link', { name: 'See How It Works' }).click();
-      if (new URL(page.url()).hash !== '#how-it-works') throw Error('How It Works destination');
+      if (new URL(page.url()).hash !== '#planning-steps') throw Error('How It Works destination');
       if (width === 1440 || width === 390) {
         await page.screenshot({ path: `/tmp/gapyears-${width}.png`, fullPage: true });
       }
