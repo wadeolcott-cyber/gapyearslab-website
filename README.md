@@ -10,14 +10,15 @@ Use Python 3 (no packages required):
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000` in your own browser. Edit HTML or `assets/site.css` and reload. The only visitor JavaScript is the supplied Cloudflare Web Analytics beacon. There is no database, account system, external font, or application engine in this website.
+Open `http://localhost:8000` in your own browser. Edit HTML or `assets/site.css` and reload. Visitor JavaScript consists of the browser-only Early Retirement Calculator and the supplied Cloudflare Web Analytics beacon. There is no database, account system, external font, or application engine in this website.
 
 ## Structure
 
 - `index.html`: homepage
 - `planning-tools/`, `planner/`, `learn/`, `about/`: product and educational pages
 - `methodology/`, `privacy/`, `disclaimer/`, `contact/`: supporting information
-- `assets/`: shared stylesheet and SVG favicon
+- `retirement-calculator/`: browser-only deterministic funding and taxable bridge calculator
+- `assets/`: shared stylesheet, branding, and calculator modules
 - `404.html`: custom not-found page
 - `robots.txt`, `sitemap.xml`: search engine discovery
 - `scripts/`: dependency-free build/link validation and optional browser checks
@@ -49,7 +50,7 @@ npm install --prefix /tmp/gapyears-browser-checks playwright
 NODE_PATH=/tmp/gapyears-browser-checks/node_modules node scripts/check_browser.cjs
 ```
 
-Set `CHROMIUM_PATH` to use an existing Chromium executable, and `SITE_URL` to change the test origin. The script checks nine pages at widths 320, 360, 390, 768, and 1440 pixels, HTTP responses, horizontal overflow, heading order, named navigation/controls, keyboard skip focus, and launch/how-it-works destinations. Desktop/mobile screenshots are written to `/tmp`. It is a smoke check, not a full accessibility audit; review contrast, zoom, keyboard use, and screen-reader behavior when changing components.
+Set `CHROMIUM_PATH` to use an existing Chromium executable, and `SITE_URL` to change the test origin. The script checks eleven pages at widths 320, 360, 390, 768, and 1440 pixels, HTTP responses, horizontal overflow, heading order, named navigation/controls, keyboard skip focus, and launch/how-it-works destinations. Desktop/mobile screenshots are written to `/tmp`. It is a smoke check, not a full accessibility audit; review contrast, zoom, keyboard use, and screen-reader behavior when changing components.
 
 ## Cloudflare Pages deployment
 
@@ -148,3 +149,14 @@ Run `python3 scripts/check_article_reference.py` and `python3 scripts/check_arti
 ## Homepage whole-dollar publication example
 
 The homepage now uses the same revised $128,600/$128,601 pair as the educational article, based on the recorded PR #47 report and `docs/article-aca-rounding-reference-2026.json`. The cards display approximately $23,191 of credit and $6,809 of net premiums at A, $0/$30,000 at B, and $0 regular federal income tax before credits in both. The estimate is not a guaranteed filed result. Methodology preserves the separate continuous planning $23,191.44/$6,808.56 figures and explains why they differ. Earlier cent-level extracts and review screenshots are historical technical evidence, not the current homepage publication reference. No reference fixture or app calculation is changed.
+
+
+## Early Retirement Calculator
+
+`/retirement-calculator/` is a separate directional tool, reached from the homepage and existing Planning Tools navigation hub. It does not share the Income Planner engine or transfer inputs. Its pure model is `assets/calculator/model.mjs`; `ui.js` handles validation and rendering. The build includes both through the existing static-file copy pattern, with no new dependency or hosting setting.
+
+Personal inputs start blank; only withdrawal rate (4%) and real return (0%) default. Inputs live in page memory only, clear on reload/reset, and are never added to URLs, storage, custom analytics events, or application links. The existing analytics snippet remains unchanged; live third-party analytics behavior still requires deployment review.
+
+Run `node --test scripts/calculator-model.test.mjs` and, with the local server running, `NODE_PATH=/path/to/external/node_modules SITE_URL=http://127.0.0.1:8000 node scripts/calculator-browser.cjs`. Set `CHROMIUM_PATH` if needed. The focused browser test intercepts the analytics module, verifies no calculator interaction requests, storage, cookies, or URL changes, and saves 390/768/1440px screenshots in `/tmp`. It does not certify the live analytics service.
+
+See [calculator methodology and verification](docs/retirement-calculator.md) for formulas, numerical results, edge cases, review screenshots, and limitations. No app, Privacy/Disclaimer page, existing financial reference, or indexing setting is changed.
