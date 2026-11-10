@@ -840,3 +840,8 @@ summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 [hidden] { display: none !important; }
 @media (max-width: 900px) { .calculator-layout { grid-template-columns: 1fr; gap: 36px; } }
 @media (max-width: 700px) { .tools-grid { grid-template-columns: 1fr; } .funding-scenario { padding: 18px; } .funding-metrics > div { gap: 12px; } }
+
+/* Paired homepage tool actions reuse the existing secondary button treatment. */
+.home-hero .actions, .closing .actions { flex-wrap: wrap; align-items: flex-start; }
+.planner-action { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.planner-action .secondary-button:hover { background: #eaf3ef; color: var(--navy); }
