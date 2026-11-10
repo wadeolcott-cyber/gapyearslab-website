@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Early Retirement Calculator | GapYears Lab</title>
+<meta name="description" content="Estimate your early retirement savings target and see whether taxable brokerage and cash could cover the years before retirement-account withdrawals.">
+<link rel="canonical" href="https://gapyearslab.com/retirement-calculator/">
+<meta name="theme-color" content="#19364B">
+<meta property="og:title" content="Early Retirement Calculator | GapYears Lab">
+<meta property="og:description" content="Estimate your early retirement savings target and see whether taxable brokerage and cash could cover the years before retirement-account withdrawals.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gapyearslab.com/retirement-calculator/">
+<link rel="icon" href="/assets/branding/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/branding/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="icon" href="/assets/branding/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/branding/favicon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="/assets/branding/icon-180.png" sizes="180x180">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:site_name" content="GapYears Lab">
+<meta property="og:image" content="https://gapyearslab.com/assets/branding/logo-full.png">
+<meta property="og:image:alt" content="GapYears Lab logo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Early Retirement Calculator | GapYears Lab">
+<meta name="twitter:description" content="Estimate your early retirement savings target and see whether taxable brokerage and cash could cover the years before retirement-account withdrawals.">
+<meta name="twitter:image" content="https://gapyearslab.com/assets/branding/icon-512.png">
+<meta name="twitter:image:alt" content="GapYears Lab icon">
+<script type="module" src="/assets/calculator/ui.js">
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="container nav">
+<a class="brand" href="/" aria-label="GapYears Lab home">
+<img class="brand-logo" src="/assets/branding/logo-full.png" width="2049" height="685" alt="GapYears Lab">
+</a>
+<nav aria-label="Main navigation">
+<a href="/planning-tools/">Planning Tools</a>
+<a href="/learn/">Learn</a>
+<a href="/about/">About</a>
+<a class="button small" href="https://app.gapyearslab.com">Launch Income Planner <span aria-hidden="true">
+<svg class="arrow-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+<path d="M5 19 19 5M5 5h14v14"/>
+</svg>
+</span>
+</a>
+</nav>
+</div>
+</header>
+<main id="main" tabindex="-1">
+<section class="page-heading container">
+<p class="eyebrow">EARLY RETIREMENT CALCULATOR</p>
+<h1>How much might you need to retire early?</h1>
+<p class="lead">Start with what you expect to spend and the income you can count on. See how much your portfolio may need to cover before and after Social Security, then check whether your taxable savings can fund the years you plan to rely on them.</p>
+<p>Directional estimates in today’s dollars. No account, saved inputs, or financial-data upload.</p>
+</section>
+<div class="container content calculator-layout">
+<section aria-labelledby="calculator-inputs">
+<h2 id="calculator-inputs">Your planning assumptions</h2>
+<p>Enter 0 for amounts that do not apply. Personal amounts start blank.</p>
+<div class="calculator-actions">
+<button type="button" class="button" id="load-example">Load example</button>
+<button type="button" class="secondary-button" id="reset-calculator">Reset</button>
+</div>
+<p id="example-notice" class="year-notice" hidden>Hypothetical example loaded. These numbers do not describe an actual household; edit the assumptions to explore alternatives.</p>
+<div id="calculator-form">
+<fieldset>
+<legend>Annual spending and income</legend>
+<div class="calculator-field">
+<label for="spending">Expected annual spending <span class="field-unit">(USD)</span>
+</label>
+<input type="number" inputmode="decimal" id="spending" aria-describedby="spending-help" autocomplete="off" step="any" min="0">
+<p id="spending-help">Include your estimates for taxes, healthcare, and everyday living expenses. Use today’s dollars.</p>
+</div>
+<div class="calculator-field">
+<label for="income">Dependable annual income <span class="field-unit">(USD)</span>
+</label>
+<input type="number" inputmode="decimal" id="income" aria-describedby="income-help" autocomplete="off" step="any" min="0">
+<p id="income-help">Include dependable income such as a pension. Enter Social Security separately. Dividends and interest from the accounts below are part of your portfolio’s return.</p>
+</div>
+<div class="calculator-field">
+<label for="socialSecurity">Expected annual Social Security benefits <span class="field-unit">(USD)</span>
+</label>
+<input type="number" inputmode="decimal" id="socialSecurity" aria-describedby="socialSecurity-help" autocomplete="off" step="any" min="0">
+<p id="socialSecurity-help">Total annual household benefits in today’s dollars. Enter 0 for none; we don’t estimate benefits or claiming ages.</p>
+</div>
+<div class="calculator-field">
+<label for="socialYears">Years until Social Security starts <span class="field-unit">(Years)</span>
+</label>
+<input type="number" inputmode="decimal" id="socialYears" aria-describedby="socialYears-help" autocomplete="off" min="0" step="1">
+<p id="socialYears-help">Use whole years; 0 means immediately. Ignored when Social Security benefits are 0.</p>
+</div>
+</fieldset>
+<fieldset>
+<legend>Savings</legend>
+<div class="calculator-field">
+<label for="taxable">Taxable savings available for retirement spending <span class="field-unit">(USD)</span>
+</label>
+<input type="number" inputmode="decimal" id="taxable" aria-describedby="taxable-help" autocomplete="off" step="any" min="0">
+<p id="taxable-help">Taxable brokerage assets and accessible cash intended for retirement spending.</p>
+</div>
+<div class="calculator-field">
+<label for="retirement">Retirement account savings <span class="field-unit">(USD)</span>
+</label>
+<input type="number" inputmode="decimal" id="retirement" aria-describedby="retirement-help" autocomplete="off" step="any" min="0">
+<p id="retirement-help">Include IRAs, 401(k)s, Roth IRAs, and similar accounts. This calculator does not determine access taxes, penalties, or restrictions.</p>
+</div>
+<div class="calculator-field">
+<label for="bridgeYears">Years before drawing from retirement accounts <span class="field-unit">(Years)</span>
+</label>
+<input type="number" inputmode="decimal" id="bridgeYears" aria-describedby="bridgeYears-help" autocomplete="off" min="0" step="1">
+<p id="bridgeYears-help">Enter the number of years you plan to cover from taxable brokerage and cash before drawing from retirement accounts. Independent of Social Security timing.</p>
+</div>
+</fieldset>
+<fieldset>
+<legend>Planning assumptions</legend>
+<div class="calculator-field">
+<label for="withdrawal">Assumed starting withdrawal rate <span class="field-unit">(%)</span>
+</label>
+<input type="number" inputmode="decimal" id="withdrawal" aria-describedby="withdrawal-help" autocomplete="off" step="any" value="4">
+<p id="withdrawal-help">Illustrative planning assumption, not a guaranteed safe withdrawal rate. Enter a percentage greater than 0 and no more than 100.</p>
+</div>
+<div class="calculator-field">
+<label for="realReturn">Annual investment return after inflation <span class="field-unit">(%)</span>
+</label>
+<input type="number" inputmode="decimal" id="realReturn" aria-describedby="realReturn-help" autocomplete="off" step="any" value="0">
+<p id="realReturn-help">Use an annual total return after inflation, including dividends and interest. Leave it blank to use 0%. A constant assumption, not a market forecast; negative returns greater than −100% are allowed.</p>
+</div>
+</fieldset>
+</div>
+<button type="button" class="button" id="calculate">Calculate estimates</button>
+<p class="scope-note">Estimates also update as you enter valid changes. Calculator inputs stay in this page’s memory and clear on reload. No inputs or results are sent to the Income Planner or attached to analytics events.</p>
+<noscript>
+<p>This calculator needs JavaScript in your browser. No calculations run on a server.</p>
+</noscript>
+</section>
+<section class="calculator-output" aria-labelledby="estimate-title">
+<h2 id="estimate-title">Your directional estimates</h2>
+<p id="calculator-status" role="status" aria-live="polite">Enter your assumptions or choose Load example to see a hypothetical comparison.</p>
+<div id="calculator-errors" class="calculator-errors" tabindex="-1" aria-live="polite" hidden>
+</div>
+<div id="calculator-results" hidden>
+</div>
+<p class="scope-note">These estimates use today's dollars, steady annual returns, and withdrawals at the start of each year. Actual returns and spending can vary. Include your own estimates for taxes and healthcare in annual spending.</p>
+<p class="scope-note">These are directional estimates, not a guarantee that your savings will last throughout retirement. Actual returns, spending, taxes, and benefit timing can change the outcome.</p>
+<p class="scope-note">
+<strong>The taxable bridge is a separate accessibility check, not an extra target to add to the overall portfolio estimate.</strong> It tests the period you plan to rely on taxable assets; it does not determine when retirement accounts are legally accessible.</p>
+<details class="scenario-assumptions">
+<summary>How this estimate works</summary>
+<h3>Today’s purchasing power</h3>
+<p>Spending, dependable outside income, and household Social Security are ongoing amounts in today’s dollars. We assume they stay constant after inflation over their applicable periods. This does not mean every pension has inflation increases. Temporary income, pensions that end, and complex benefit timing are not modeled.</p>
+<h3>Beginning-of-year withdrawals</h3>
+<p>The annual portfolio gap is spending minus dependable outside income, with a floor of zero. Once Social Security starts, its benefit reduces that gap, also to a minimum of zero. When benefits are zero, their timing is ignored.</p>
+<p>We discount the first years’ spending gaps using your constant annual return after inflation. At the start of the Social Security year, the ongoing gap divided by the starting withdrawal rate estimates a portfolio target. That future target is discounted back and combined with the earlier gaps. Without Social Security, the current gap divided by the rate is the target.</p>
+<p>The illustrative 4% withdrawal-rate default is editable and not a guaranteed safe rate. Your assumed return includes dividends and interest, so those portfolio distributions must not also be counted as dependable outside income.</p>
+<h3>Taxable bridge coverage</h3>
+<p>We separately discount the spending gaps during the years you plan to rely on taxable savings, reducing the gap if Social Security begins during that period. The bridge target is not added to the overall target. A zero-year bridge needs no bridge funding. Social Security timing and bridge timing remain independent.</p>
+<p>Returns are constant and shared across taxable and retirement assets. A 0% real-return baseline is always shown; a nonzero entered return adds a separate scenario. Bars share a percentage scale within each result section, with each scenario’s own target defining 100%.</p>
+<h3>What this does not model</h3>
+<ul>
+<li>Retirement success probabilities, longevity, or a specific retirement end date.</li>
+<li>Market volatility, sequence-of-returns risk, or changing spending.</li>
+<li>Future tax laws or healthcare-cost changes.</li>
+<li>Social Security claiming optimization, eligibility, or benefit calculations.</li>
+<li>Pensions or other dependable income that change or end.</li>
+<li>Retirement-account taxes, access penalties, restrictions, or required minimum distributions.</li>
+</ul>
+<p>This is a deterministic estimate, not a Monte Carlo simulation, lifetime cash-flow plan, or individualized recommendation. Savings above a target do not establish that retirement is financially secure. <a href="/disclaimer/">Read the educational disclaimer</a>.</p>
+</details>
+<aside class="article-cta" aria-labelledby="fund-gap">
+<h3 id="fund-gap">Plan how you'll fund the gap</h3>
+<p>Once you know what your portfolio may need to cover, use the Income Planner to explore how capital gains and Roth conversions could affect federal taxes and Marketplace health insurance costs.</p>
+<a class="button" href="https://app.gapyearslab.com/">Open the Income Planner</a>
+<p class="scope-note">The calculator estimates funding requirements; the Income Planner evaluates annual income and tax decisions. These tools do not share saved financial information or transfer your inputs. The Income Planner is a separate Public Beta application.</p>
+</aside>
+</section>
+</div>
+</main>
+<footer>
+<div class="container">
+<div class="footer-top">
+<div>
+<a class="brand" href="/" aria-label="GapYears Lab home">
+<img class="brand-logo" src="/assets/branding/logo-full.png" width="2049" height="685" alt="GapYears Lab">
+</a>
+<p>Make the most of the years between.</p>
+</div>
+<nav aria-label="Footer navigation">
+<a href="/methodology/">Methodology</a>
+<a href="/privacy/">Privacy</a>
+<a href="/disclaimer/">Disclaimer</a>
+<a href="/contact/">Contact</a>
+</nav>
+</div>
+<div class="footer-bottom">
+<span>© 2026 GapYears Lab</span>
+<span>Built for exploration. For educational purposes only.</span>
+</div>
+</div>
+</footer>
+<!-- Cloudflare Web Analytics -->
+<script
+  type="module"
+  src="https://static.cloudflareinsights.com/beacon.min.js"
+  data-cf-beacon='{"token": "2c066b4f0f454d73b66d63f1630e8c43"}'
+></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>

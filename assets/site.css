@@ -797,3 +797,46 @@ summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 .product-capture figcaption a, .product-preview .scope-note a, .how-to-plan .scope-note a { text-decoration: underline; text-underline-offset: 3px; }
 .product-preview .actions { flex-wrap: wrap; }
 @media (max-width: 700px) { .home-hero { gap: 24px; } .hero-decisions { padding: 24px; } .hero-decisions h2 { font-size: 24px; } }
+
+/* Lightweight deterministic calculator. No chart or form dependencies. */
+.tools-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+.tool-card .button { align-self: flex-start; margin-top: auto; }
+.tool-card p { margin-bottom: 12px; }
+.calculator-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 48px; align-items: start; }
+.calculator-layout fieldset { margin: 28px 0; padding: 20px; border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+.calculator-layout legend { font-weight: 650; padding-inline: 8px; }
+.calculator-field + .calculator-field { margin-top: 24px; }
+.calculator-field label { display: block; font-weight: 650; font-size: 14px; }
+.field-unit { font-weight: 400; color: var(--muted); }
+.calculator-field input { display: block; width: 100%; margin-top: 8px; min-height: 44px; border: 1px solid #7b8b95; border-radius: 5px; padding: 10px 12px; font: inherit; color: var(--navy); background: white; }
+.calculator-field p { font-size: 12px; margin: 8px 0 0; }
+.calculator-field input[aria-invalid="true"] { border: 2px solid #97542e; }
+.calculator-field input:disabled { background: var(--off); color: var(--muted); }
+.calculator-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.calculator-layout button { cursor: pointer; border: 0; font-family: inherit; }
+.secondary-button { padding: 12px 20px; border-radius: 5px; background: var(--off); color: var(--navy); font-weight: 650; }
+.calculator-layout :is(button,input):focus-visible, .calculator-errors:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+.calculator-errors { border-left: 3px solid #97542e; background: var(--off); padding: 16px 20px; margin-block: 22px; }
+.calculator-errors a { text-decoration: underline; font-size: 13px; }
+.calculator-errors ul { padding-left: 18px; }
+.calculator-errors li { margin-bottom: 10px; }
+.funding-section { margin-block: 30px; }
+.funding-section h3 { font-size: 24px; }
+.funding-scenario { border: 1px solid var(--line); border-radius: 8px; padding: 22px; margin-top: 18px; overflow-wrap: anywhere; }
+.funding-scenario h4 { font-size: 17px; margin: 0 0 20px; }
+.funding-metrics { margin: 18px 0 0; }
+.funding-metrics > div { display: flex; justify-content: space-between; gap: 18px; padding-block: 10px; border-top: 1px solid var(--line); }
+.funding-metrics dt { font-size: 13px; color: var(--muted); }
+.funding-metrics dd { margin: 0; font-size: 16px; font-weight: 650; text-align: right; max-width: 65%; }
+.coverage-chart { margin: 18px 0 30px; }
+.coverage-track { height: 20px; position: relative; background: var(--off); border: 1px solid var(--line); }
+.coverage-bar { background: var(--teal); height: 100%; }
+.coverage-marker { position: absolute; height: 30px; width: 2px; top: -5px; background: var(--navy); left: var(--marker); }
+.coverage-axis { display: flex; justify-content: space-between; position: relative; font-size: 10px; margin-top: 8px; }
+.target-label { position: absolute; left: var(--marker); transform: translateX(-50%); white-space: nowrap; }
+.zero-target { font-weight: 650; }
+.calculator-output > .article-cta { margin-top: 32px; }
+.calculator-output .scenario-assumptions :is(p, li) { font-size: 14px; color: var(--muted); }
+[hidden] { display: none !important; }
+@media (max-width: 900px) { .calculator-layout { grid-template-columns: 1fr; gap: 36px; } }
+@media (max-width: 700px) { .tools-grid { grid-template-columns: 1fr; } .funding-scenario { padding: 18px; } .funding-metrics > div { gap: 12px; } }
