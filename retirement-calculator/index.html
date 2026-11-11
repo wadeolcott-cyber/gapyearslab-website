@@ -119,7 +119,7 @@
 <label for="withdrawal">Assumed starting withdrawal rate <span class="field-unit">(%)</span>
 </label>
 <input type="number" inputmode="decimal" id="withdrawal" aria-describedby="withdrawal-help" autocomplete="off" step="any" value="4">
-<p id="withdrawal-help">Illustrative planning assumption, not a guaranteed safe withdrawal rate. Enter a percentage greater than 0 and no more than 100.</p>
+<p id="withdrawal-help">The 4% default is an illustrative starting point, not a guaranteed safe withdrawal rate. Early retirement may involve a longer withdrawal period. Compare different rates to see how your estimated target changes. Enter a percentage greater than 0 and no more than 100.</p>
 </div>
 <div class="calculator-field">
 <label for="realReturn">Annual investment return after inflation <span class="field-unit">(%)</span>
@@ -142,12 +142,21 @@
 </div>
 <div id="calculator-results" hidden>
 </div>
+<template id="bridge-guidance">
+<div class="bridge-guidance">
+<p class="scope-note">Your taxable savings may include unrealized investment gains. Depending on your household's circumstances, selling investments can create taxes and affect ACA healthcare subsidies, reducing the amount available for spending. This estimate doesn't calculate those effects.</p>
+<ul class="bridge-links">
+<li><a class="text-link" href="/learn/zero-percent-capital-gains-aca-subsidy-cliff/">Learn how capital gains can affect ACA subsidies</a></li>
+<li><a class="text-link" href="https://app.gapyearslab.com/">Explore income and healthcare tradeoffs</a></li>
+<li><a class="text-link" href="/learn/why-taxable-brokerage-matters-early-retirement/">Why taxable savings matter for early retirement</a></li>
+</ul>
+</div>
+</template>
 <p class="scope-note">These estimates use today's dollars, steady annual returns, and withdrawals at the start of each year. Actual returns and spending can vary. Include your own estimates for taxes and healthcare in annual spending.</p>
 <p class="scope-note">These are directional estimates, not a guarantee that your savings will last throughout retirement. Actual returns, spending, taxes, and benefit timing can change the outcome.</p>
 <p class="scope-note">For educational planning purposes only. Estimates are not personalized financial or tax advice. Verify important decisions with appropriately qualified professionals. <a href="/disclaimer/">Read the educational disclaimer</a>.</p>
 <p class="scope-note">
 <strong>The taxable bridge is a separate accessibility check, not an extra target to add to the overall portfolio estimate.</strong> It tests the period you plan to rely on taxable assets; it does not determine when retirement accounts are legally accessible.</p>
-<p><a href="/learn/why-taxable-brokerage-matters-early-retirement/">Why taxable savings matter for early retirement</a></p>
 <details class="scenario-assumptions">
 <summary>How this estimate works</summary>
 <h3>Today’s purchasing power</h3>
@@ -157,7 +166,7 @@
 <p>We discount the first years’ spending gaps using your constant annual return after inflation. At the start of the Social Security year, the ongoing gap divided by the starting withdrawal rate estimates a portfolio target. That future target is discounted back and combined with the earlier gaps. Without Social Security, the current gap divided by the rate is the target.</p>
 <p>The illustrative 4% withdrawal-rate default is editable and not a guaranteed safe rate. Your assumed return includes dividends and interest, so those portfolio distributions must not also be counted as dependable outside income.</p>
 <h3>Taxable bridge coverage</h3>
-<p>We separately discount the spending gaps during the years you plan to rely on taxable savings, reducing the gap if Social Security begins during that period. The bridge target is not added to the overall target. A zero-year bridge needs no bridge funding. Social Security timing and bridge timing remain independent.</p>
+<p>We separately discount the spending gaps during the years you plan to rely on taxable savings, reducing the gap if Social Security begins during that period. The bridge target is not added to the overall target. A zero-year bridge needs no bridge funding. Social Security timing and bridge timing remain independent. The entered taxable balance is not adjusted for embedded gains, taxes on investment sales, state taxes, tax-loss harvesting, tax-lot consequences, or ACA premium tax credit changes.</p>
 <p>Returns are constant and shared across taxable and retirement assets. A 0% real-return baseline is always shown; a nonzero entered return adds a separate scenario. Bars share a percentage scale within each result section, with each scenario’s own target defining 100%.</p>
 <h3>What this does not model</h3>
 <ul>

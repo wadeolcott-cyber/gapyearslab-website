@@ -845,3 +845,11 @@ summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 .home-hero .actions, .closing .actions { flex-wrap: wrap; align-items: flex-start; }
 .planner-action { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
 .planner-action .secondary-button:hover { background: #eaf3ef; color: var(--navy); }
+
+/* Calculator sensitivity stays separate from the real-return result bars. */
+.withdrawal-comparison { margin-top: 24px; }
+.withdrawal-table { table-layout: fixed; overflow-wrap: anywhere; }
+.withdrawal-table th:first-child { width: 25%; }
+.comparison-direction { display: block; color: var(--muted); font-size: 12px; }
+.bridge-links { padding-left: 20px; margin-block: 14px; }
+.bridge-links li + li { margin-top: 10px; }
