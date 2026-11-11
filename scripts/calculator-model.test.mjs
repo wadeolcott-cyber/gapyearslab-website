@@ -87,3 +87,27 @@ test('100% withdrawal accepted; above-target coverage retains actual percentage'
   const r = calculate({ ...base, withdrawal: 100, taxable: 1000 });
   assert.equal(r.overallTarget, 100); assert.equal(r.overallCoverage, 1300);
 });
+
+test('withdrawal sensitivity: reference targets at fixed 0% return, same bridge and unmutated inputs', () => {
+  const input = { ...EXAMPLE };
+  for (const [withdrawal, target, difference] of [[3, 1166666.666667, -66666.666667], [3.5, 1071428.571429, 28571.428571], [4, 1000000, 100000], [3.25, 1115384.615385, -15384.615385]]) {
+    const result = calculate({ ...input, withdrawal });
+    near(result.overallTarget, target); near(result.overallDifference, difference);
+    assert.equal(result.bridgeTarget, 350000); assert.equal(result.combinedSavings, 1100000);
+  }
+  assert.deepEqual(input, EXAMPLE);
+});
+test('withdrawal sensitivity: fixed entered 3% real return uses discounted targets, unchanged bridge', () => {
+  // Independently evaluated beginning-year discounted gaps plus future ongoing target.
+  for (const [withdrawal, target] of [[3, 935368.056025], [3.5, 864501.968892], [4, 811352.403542], [3.25, 897209.393723]]) {
+    const result = calculate({ ...EXAMPLE, realReturn: 3, withdrawal });
+    near(result.overallTarget, target); near(result.bridgeTarget, 320859.572240, .01);
+    near(result.overallDifference, 1100000 - target);
+  }
+});
+test('withdrawal sensitivity: all-zero funding gaps remain zero, including negative real returns', () => {
+  for (const withdrawal of [3, 3.5, 4, 3.25]) {
+    const result = calculate({ ...EXAMPLE, income: 75000, realReturn: -3, withdrawal });
+    assert.equal(result.overallTarget, 0); assert.equal(result.bridgeTarget, 0); assert.equal(result.overallCoverage, null);
+  }
+});
