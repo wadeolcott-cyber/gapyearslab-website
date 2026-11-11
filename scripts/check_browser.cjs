@@ -3,7 +3,8 @@ const { chromium } = require('playwright');
 const origin = process.env.SITE_URL || 'http://127.0.0.1:8000';
 const paths = ['/', '/planning-tools/', '/planner/', '/learn/', '/about/',
   '/methodology/', '/privacy/', '/disclaimer/', '/contact/',
-  '/learn/zero-percent-capital-gains-aca-subsidy-cliff/', '/retirement-calculator/', '/learn/why-taxable-brokerage-matters-early-retirement/'];
+  '/learn/zero-percent-capital-gains-aca-subsidy-cliff/', '/retirement-calculator/', '/learn/why-taxable-brokerage-matters-early-retirement/',
+  '/learn/roth-conversion-aca-subsidy-cost/'];
 
 (async () => {
   const browser = await chromium.launch({
