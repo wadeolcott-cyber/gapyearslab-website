@@ -864,3 +864,5 @@ summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 .choose-plan > h2 { font-size: 26px; }
 /* Keep tool-card titles grouped with their descriptions now the row is taller; card buttons stay bottom-anchored via their own auto margin. */
 .tool-card h3 { flex: none; }
+/* Let tool cards take their natural height instead of stretching to the tallest card, so the shorter card does not sit half empty now the Income Planner card carries two options. */
+.tools-grid { align-items: start; }
