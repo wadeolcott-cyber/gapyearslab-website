@@ -853,3 +853,14 @@ summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
 .comparison-direction { display: block; color: var(--muted); font-size: 12px; }
 .bridge-links { padding-left: 20px; margin-block: 14px; }
 .bridge-links li + li { margin-top: 10px; }
+
+/* Guided and Advanced entry experiences within the Income Planner. */
+.plan-options { display: flex; flex-direction: column; gap: 20px; }
+.plan-option { border-top: 1px solid var(--line); padding-top: 18px; }
+.plan-option :is(h3, h4) { font-size: 17px; margin: 0 0 8px; }
+.plan-option p { font-size: 14px; margin-bottom: 14px; }
+.plan-option .secondary-button:hover { background: #eaf3ef; color: var(--navy); }
+.choose-plan { margin-bottom: 44px; }
+.choose-plan > h2 { font-size: 26px; }
+/* Keep tool-card titles grouped with their descriptions now the row is taller; card buttons stay bottom-anchored via their own auto margin. */
+.tool-card h3 { flex: none; }
