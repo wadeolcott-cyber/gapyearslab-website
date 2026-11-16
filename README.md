@@ -120,7 +120,7 @@ The homepage now explains the ACA-focused audience and shows a 2026 threshold co
 
 `docs/capital-gains-homepage-reference-2026.json` is the current limited source-value extract, not a new financial model. `scripts/check_reference_example.py` checks the current fourteen whole-dollar scenario amounts and approximate highlight against PR #47’s draft annual filing comparator. The earlier withdrawal-case extract is retained unchanged as historical evidence. Read `docs/capital-gains-example-evidence.md` for the current scenario sources and scope; `docs/positioning-evidence.md` records the earlier positioning and founder review. Reviewed screenshots are in `docs/screenshots/`; none are fabricated application screenshots. These developer review files are excluded from the existing public build by its allowlisted copies.
 
-Supported planning year remains **2026**. No 2027 support or release date is promised. Noindex, navigation, deployment configuration, and Privacy/Disclaimer/Contact pages remain unchanged. Application validation reports were read but their financial suites were not rerun; no app repository or engine changes were made.
+Supported planning years are **2026 and 2027**. Noindex, navigation, deployment configuration, and Privacy/Disclaimer/Contact pages remain unchanged. Application validation reports were read but their financial suites were not rerun; no app repository or engine changes were made.
 
 ## Public website analytics
 
