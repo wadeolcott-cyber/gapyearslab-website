@@ -1,4 +1,5 @@
 import test from 'node:test';
+import { readFileSync } from 'node:fs';
 import assert from 'node:assert/strict';
 import { calculate, presentValue, validate, EXAMPLE } from '../assets/calculator/model.mjs';
 const near = (actual, expected, tolerance = 0.01) => assert.ok(Math.abs(actual - expected) <= tolerance, `${actual} ≠ ${expected}`);
@@ -110,4 +111,23 @@ test('withdrawal sensitivity: all-zero funding gaps remain zero, including negat
     const result = calculate({ ...EXAMPLE, income: 75000, realReturn: -3, withdrawal });
     assert.equal(result.overallTarget, 0); assert.equal(result.bridgeTarget, 0); assert.equal(result.overallCoverage, null);
   }
+});
+
+
+test('published educational example matches the existing engine and example inputs', () => {
+  const html = readFileSync(new URL('../retirement-calculator/index.html', import.meta.url), 'utf8');
+  const example = html.split('id="worked-example"')[1];
+  assert.ok(example, 'educational example follows the calculator');
+  const result = calculate(EXAMPLE);
+  const dollars = value => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
+  for (const [key, values] of [['overall', [result.combinedSavings, result.overallTarget]], ['bridge', [result.taxableSavings, result.bridgeTarget]]]) {
+    const row = example.match(new RegExp(`<tr data-example="${key}">(.*?)</tr>`))[1];
+    assert.deepEqual([...row.matchAll(/<td>(.*?)<\/td>/g)].map(m => m[1]), values.map(dollars));
+  }
+  for (const key of ['spending', 'income', 'socialSecurity', 'taxable', 'retirement']) assert.ok(example.includes(dollars(EXAMPLE[key])), key);
+  assert.ok(example.includes(`${EXAMPLE.socialYears} years`));
+  assert.ok(example.includes(`${EXAMPLE.bridgeYears} years`));
+  assert.ok(example.includes(`${EXAMPLE.withdrawal}%`));
+  assert.ok(example.includes(`${EXAMPLE.realReturn}%`));
+  assert.ok(example.includes('not an extra amount to add to the overall target'));
 });
